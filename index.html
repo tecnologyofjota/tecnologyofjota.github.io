@@ -7,14 +7,14 @@
     <link rel="icon" type="image/png" href="src/logo.png">
     
     <style>
-        /* --- CONFIGURACIÓN GENERAL --- */
+        /* --- 1. VARIABLES Y CONFIGURACIÓN --- */
         :root {
-            --bg-dark: #050505;
-            --card-bg: #121212;
-            --gold-metal: linear-gradient(90deg, #ae8625, #f7ef8a, #d2ac47, #edc967);
+            --bg-dark: #0a0a0a; /* Negro base */
+            --bg-panel: #141414; /* Gris muy oscuro para tarjetas */
+            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
             --gold-text: #deb853; 
             --text-main: #e0e0e0;
-            --text-muted: #a0a0a0;
+            --text-muted: #999;
             --whatsapp-green: #25d366;
         }
 
@@ -23,235 +23,216 @@
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
-            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
             margin: 0;
-            padding-top: 70px; /* Espacio para la barra fija */
-            line-height: 1.6;
-            overflow-x: hidden; /* Evita desplazamiento lateral indeseado */
+            padding-top: 70px;
+            overflow-x: hidden;
+            
+            /* TEXTURA DE FONDO (Simulación de Cuerina Técnica) */
+            background-image: 
+                radial-gradient(#1a1a1a 15%, transparent 16%),
+                radial-gradient(#1a1a1a 15%, transparent 16%);
+            background-size: 6px 6px;
+            background-position: 0 0, 3px 3px;
         }
 
-        /* --- BARRA DE NAVEGACIÓN (NAVBAR) --- */
+        /* --- 2. BARRA DE NAVEGACIÓN (Efecto Cristal) --- */
         .navbar {
             position: fixed;
             top: 0; left: 0; width: 100%;
-            background-color: #000;
+            background: rgba(0, 0, 0, 0.9); /* Semi-transparente */
+            backdrop-filter: blur(10px); /* Efecto borroso detrás */
             border-bottom: 1px solid #333;
             z-index: 1000;
             height: 70px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            display: flex; align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
         }
 
         .nav-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            width: 100%; max-width: 1200px; margin: auto;
+            display: flex; justify-content: space-between; align-items: center;
             padding: 0 20px;
         }
 
         .nav-logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--gold-text);
-            text-decoration: none;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-size: 1.5rem; font-weight: bold;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none; letter-spacing: 2px; text-transform: uppercase;
         }
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-            margin: 0; padding: 0;
-        }
+        .nav-menu { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
 
         .nav-link {
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 0.9rem;
-            text-transform: uppercase;
+            text-decoration: none; color: var(--text-main);
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
             transition: color 0.3s;
         }
-
         .nav-link:hover { color: var(--gold-text); }
 
-        /* --- MENÚ HAMBURGUESA (MÓVIL) --- */
-        .hamburger {
-            display: none; /* Oculto en PC */
-            cursor: pointer;
-        }
-
+        /* Menú Móvil */
+        .hamburger { display: none; cursor: pointer; }
         .bar {
-            display: block;
-            width: 28px;
-            height: 3px;
-            margin: 6px auto;
-            transition: all 0.3s ease-in-out;
-            background-color: var(--gold-text);
-            border-radius: 2px;
+            display: block; width: 25px; height: 3px; margin: 5px auto;
+            background-color: var(--gold-text); transition: 0.3s;
         }
 
-        /* Estilos específicos para Celulares */
         @media screen and (max-width: 768px) {
-            .hamburger { display: block; } /* Mostrar icono hamburguesa */
-
-            /* Animación X */
+            .hamburger { display: block; }
             .hamburger.active .bar:nth-child(2) { opacity: 0; }
-            .hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-            .hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
             .nav-menu {
-                position: fixed;
-                left: -100%; /* Escondido a la izquierda */
-                top: 70px;
-                flex-direction: column;
-                background-color: #080808;
-                width: 100%;
-                height: 100vh; /* Ocupa toda la pantalla */
-                text-align: center;
-                transition: 0.3s ease-in-out;
-                padding-top: 40px;
-                border-top: 1px solid #333;
+                position: fixed; left: -100%; top: 70px;
+                flex-direction: column; background-color: #000;
+                width: 100%; height: 100vh; text-align: center;
+                transition: 0.4s; padding-top: 40px;
+                border-top: 1px solid var(--gold-text);
             }
-
-            .nav-menu.active { left: 0; /* Aparece */ }
-
-            .nav-item { margin: 25px 0; }
-            .nav-link { font-size: 1.2rem; font-weight: bold; }
+            .nav-menu.active { left: 0; }
+            .nav-item { margin: 20px 0; }
+            .nav-link { font-size: 1.2rem; }
         }
 
-        /* --- HEADER Y LOGO PRINCIPAL --- */
-        header {
-            text-align: center;
-            padding: 2rem 1rem;
+        /* --- 3. SECCIONES Y DISEÑO --- */
+        /* Alternancia de tonos para separar secciones */
+        section {
+            padding: 60px 20px;
+        }
+
+        /* Las secciones pares tendrán un fondo negro sólido para cortar la textura */
+        .section-dark {
+            background-color: #000;
+            border-top: 1px solid #222;
             border-bottom: 1px solid #222;
+            box-shadow: inset 0 0 50px #050505;
+        }
+
+        .container { max-width: 1100px; margin: auto; }
+
+        header {
+            text-align: center; padding: 4rem 1rem 2rem;
+            /* Degradado sutil en el header */
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            border-bottom: 1px solid var(--gold-text);
         }
 
         .logo-web {
-            width: 280px; /* Logo grande */
-            max-width: 80%;
-            display: block;
-            margin: 0 auto 1rem;
-            filter: drop-shadow(0 0 15px rgba(222, 184, 83, 0.2));
+            width: 250px; max-width: 80%; display: block; margin: 0 auto 1.5rem;
+            filter: drop-shadow(0 0 20px rgba(191, 149, 63, 0.3));
         }
 
         h1 {
-            font-size: 2rem;
-            margin: 0;
-            background: var(--gold-metal);
+            font-size: 2.2rem; margin: 0;
+            background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            line-height: 1.2;
+            text-transform: uppercase; letter-spacing: 2px;
         }
 
-        .tagline {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-top: 10px;
-        }
-
-        /* --- SECCIONES Y TARJETAS --- */
-        .container { max-width: 1100px; margin: auto; padding: 20px; }
-        
         h2 {
-            color: var(--gold-text);
-            text-align: center;
-            text-transform: uppercase;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            font-size: 1.6rem;
+            color: var(--gold-text); text-align: center;
+            text-transform: uppercase; margin-bottom: 10px; font-size: 1.8rem;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            font-size: 0.9rem;
+            text-align: center; color: var(--text-muted);
+            margin-bottom: 40px; font-size: 0.95rem; letter-spacing: 1px;
         }
 
+        /* --- 4. TARJETAS (Servicios) --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 10px;
+            background: var(--bg-panel);
+            padding: 2.5rem 1.5rem;
+            border-radius: 4px;
             text-align: center;
-            border: 1px solid #333;
-        }
-        
-        .mission-card, .vision-card { border-top: 3px solid var(--gold-text); }
-        .icon { font-size: 2.5rem; margin-bottom: 15px; }
-
-        /* --- CARRUSEL --- */
-        .slideshow-container {
+            /* Borde sutil y sombra elegante */
+            border: 1px solid #222;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s, border-color 0.3s;
             position: relative;
-            max-width: 800px;
-            margin: auto;
-            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid #333;
         }
-        
+
+        /* Línea dorada superior en las tarjetas */
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: var(--gold-gradient); transform: scaleX(0); transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #333;
+        }
+        .card:hover::before { transform: scaleX(1); }
+
+        .icon { font-size: 2.5rem; margin-bottom: 15px; filter: grayscale(100%); transition: 0.3s; }
+        .card:hover .icon { filter: grayscale(0%); }
+
+        .card h3 { color: #fff; margin: 10px 0; font-size: 1.2rem; }
+        .card p { color: #aaa; font-size: 0.9rem; }
+
+        /* --- 5. CARRUSEL --- */
+        .slideshow-container {
+            position: relative; max-width: 900px; margin: auto;
+            border-radius: 8px; overflow: hidden;
+            border: 1px solid #333;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+        }
         .mySlides { display: none; }
-        .slide-content img { width: 100%; display: block; }
-        
+        .slide-content img { width: 100%; display: block; transition: transform 4s; }
+        /* Efecto zoom lento en imagen */
+        .mySlides:hover img { transform: scale(1.05); } 
+
         .text-overlay {
             position: absolute; bottom: 0; width: 100%;
-            background: rgba(0,0,0,0.85);
-            color: #fff; padding: 15px; text-align: center;
+            background: linear-gradient(to top, #000 10%, transparent);
+            padding: 40px 20px 20px; text-align: center;
         }
-        .text-overlay h3 { color: var(--gold-text); margin: 0 0 5px 0; font-size: 1.1rem; }
-        .text-overlay p { margin: 0; font-size: 0.85rem; }
-
+        .text-overlay h3 { color: var(--gold-text); margin: 0; font-size: 1.4rem; }
+        
         .prev, .next {
-            cursor: pointer; position: absolute; top: 50%;
-            padding: 16px; margin-top: -22px;
-            color: white; font-weight: bold; font-size: 18px;
-            background: rgba(0,0,0,0.5); user-select: none;
+            cursor: pointer; position: absolute; top: 50%; padding: 16px;
+            margin-top: -22px; color: white; font-weight: bold; font-size: 20px;
+            background: rgba(0,0,0,0.5); border-radius: 3px;
         }
         .next { right: 0; }
-        .prev:hover, .next:hover { background: var(--gold-text); color: #000; }
 
-        .dot-container { text-align: center; margin-top: 15px; }
-        .dot {
-            height: 10px; width: 10px; margin: 0 5px;
-            background-color: #333; border-radius: 50%; display: inline-block;
-            cursor: pointer;
-        }
-        .active { background-color: var(--gold-text); }
-
-        /* --- BOTONES Y FOOTER --- */
-        .divider { border: 0; height: 1px; background: #333; margin: 40px 0; }
-        
+        /* --- 6. EXTRAS --- */
         .btn-contact {
-            display: inline-block; padding: 12px 30px;
-            background: var(--gold-metal); color: #000;
-            font-weight: bold; text-decoration: none;
-            border-radius: 50px; margin-top: 20px;
+            display: inline-block; padding: 15px 40px;
+            background: var(--gold-gradient); color: #000;
+            font-weight: bold; text-decoration: none; border-radius: 50px;
+            margin-top: 20px; box-shadow: 0 0 20px rgba(222, 184, 83, 0.3);
+            transition: 0.3s;
         }
-        
-        .whatsapp-float {
-            position: fixed; bottom: 20px; right: 20px;
-            width: 55px; height: 55px;
-            background: var(--whatsapp-green);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-            z-index: 2000;
-        }
+        .btn-contact:hover { box-shadow: 0 0 30px rgba(222, 184, 83, 0.6); transform: scale(1.05); }
 
-        footer { text-align: center; padding: 30px; font-size: 0.8rem; color: #666; background: #000; margin-top: 40px;}
+        .whatsapp-float {
+            position: fixed; bottom: 25px; right: 25px;
+            width: 60px; height: 60px;
+            background: var(--whatsapp-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 2000;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
+
+        footer {
+            background: #000; text-align: center; padding: 40px 20px;
+            border-top: 1px solid #222; color: #555; font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
@@ -259,13 +240,9 @@
 <nav class="navbar">
     <div class="nav-container">
         <a href="#inicio" class="nav-logo">TOJ</a>
-        
         <div class="hamburger" onclick="toggleMenu()">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </div>
-
         <ul class="nav-menu">
             <li class="nav-item"><a href="#inicio" class="nav-link" onclick="closeMenu()">Inicio</a></li>
             <li class="nav-item"><a href="#servicios" class="nav-link" onclick="closeMenu()">Servicios</a></li>
@@ -279,152 +256,136 @@
 <header id="inicio">
     <img src="src/logo.png" alt="TOJ Logo" class="logo-web">
     <h1>Tecnology of Jota</h1>
-    <p class="tagline">Innovación en Software & Hardware</p>
+    <p style="color: #888; letter-spacing: 3px; font-size: 0.9rem; margin-top: 10px;">SOLUCIONES DIGITALES & POS</p>
 </header>
 
-<div class="container">
-
-    <section id="servicios">
+<section id="servicios">
+    <div class="container">
         <h2>Nuestras Soluciones</h2>
+        <p class="section-subtitle">Tecnología diseñada para potenciar tu negocio.</p>
+        
         <div class="grid">
             <div class="card">
                 <div class="icon">💻</div>
                 <h3>Sistemas POS</h3>
-                <p>Software a medida para control total de ventas y stock.</p>
+                <p>Software de punto de venta rápido y estable. Control de inventario y ventas en tiempo real.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>Apps Móviles</h3>
+                <p>Desarrollo de aplicaciones para Android y iOS. Lleva tu negocio al bolsillo de tus clientes.</p>
             </div>
             <div class="card">
                 <div class="icon">🌐</div>
                 <h3>Sitios Web</h3>
-                <p>Presencia digital profesional optimizada para móviles.</p>
+                <p>Diseño web moderno, catálogos digitales y tiendas online optimizadas.</p>
             </div>
             <div class="card">
                 <div class="icon">🔧</div>
                 <h3>Soporte IT</h3>
-                <p>Mantenimiento de hardware, redes e impresoras térmicas.</p>
+                <p>Instalación de hardware, impresoras térmicas, redes y mantenimiento preventivo.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <hr class="divider">
-    
+<div class="section-dark">
     <section id="portafolio">
-        <h2>Portafolio Destacado</h2>
-        <p class="section-subtitle">Nuestros últimos proyectos.</p>
+        <div class="container">
+            <h2>Portafolio Destacado</h2>
+            <p class="section-subtitle">Proyectos recientes en funcionamiento.</p>
 
-        <div class="slideshow-container">
-            <div class="mySlides fade">
-                <div class="slide-content">
-                    <img src="src/pos1.png">
-                    <div class="text-overlay">
-                        <h3>Sistema POS Gastronómico</h3>
-                        <p>Interfaz táctil y rápida.</p>
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <div class="slide-content">
+                        <img src="src/pos1.png">
+                        <div class="text-overlay">
+                            <h3>Sistema POS Wafleria</h3>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="mySlides fade">
-                <div class="slide-content">
-                    <img src="src/pos2.png" onerror="this.src='src/pos1.png'">
-                    <div class="text-overlay">
-                        <h3>Reportes en Vivo</h3>
-                        <p>Control de caja al instante.</p>
+                <div class="mySlides fade">
+                    <div class="slide-content">
+                        <img src="src/pos2.png" onerror="this.src='src/pos1.png'">
+                        <div class="text-overlay">
+                            <h3>Panel de Control</h3>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="mySlides fade">
-                <div class="slide-content">
-                    <img src="src/pos3.png" onerror="this.src='src/pos1.png'">
-                    <div class="text-overlay">
-                        <h3>Diseño Web</h3>
-                        <p>Adaptable a todos los dispositivos.</p>
+                <div class="mySlides fade">
+                    <div class="slide-content">
+                        <img src="src/pos3.png" onerror="this.src='src/pos1.png'">
+                        <div class="text-overlay">
+                            <h3>Aplicación de Pedidos</h3>
+                        </div>
                     </div>
                 </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-        <div class="dot-container">
-            <span class="dot" onclick="currentSlide(1)"></span> 
-            <span class="dot" onclick="currentSlide(2)"></span> 
-            <span class="dot" onclick="currentSlide(3)"></span> 
         </div>
     </section>
+</div>
 
-    <hr class="divider">
-
-    <section id="nosotros">
-        <h2>Sobre Nosotros</h2>
+<section id="nosotros">
+    <div class="container">
+        <h2>Filosofía TOJ</h2>
         <div class="grid">
-            <div class="card mission-card">
+            <div class="card">
                 <h3>Misión</h3>
                 <p>Digitalizar y potenciar los negocios gastronómicos y comerciales mediante soluciones tecnológicas accesibles, robustas y fáciles de usar, permitiendo a nuestros clientes enfocarse en lo que mejor saben hacer: vender.</p>
             </div>
-            <div class="card vision-card">
+            <div class="card">
                 <h3>Visión</h3>
                 <p>Ser el referente líder en innovación tecnológica para PYMES en la región, reconocidos por la calidad de nuestro software, la excelencia en el soporte técnico y el compromiso con el crecimiento de nuestros clientes.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="contacto" style="text-align: center; margin-bottom: 40px;">
-        <h2>Contacto</h2>
-        <p style="color:#aaa;">¡Hablemos de tu proyecto!</p>
-        <a href="https://wa.me/56974464827?text=Hola,%20quiero%20cotizar." class="btn-contact">
-            Cotizar por WhatsApp
+<div class="section-dark">
+    <section id="contacto" style="text-align: center;">
+        <h2>¿Empezamos?</h2>
+        <p style="color: #aaa; margin-bottom: 30px;">Cuéntanos tu idea y te asesoramos sin compromiso.</p>
+        
+        <a href="https://wa.me/56974464827?text=Hola,%20me%20interesa%20cotizar" class="btn-contact">
+            Contactar por WhatsApp
         </a>
     </section>
-
 </div>
 
 <footer>
-    <p>&copy; 2026 Tecnology of Jota - TOJ.</p>
+    <p>&copy; 2026 Tecnology of Jota - TOJ. Todos los derechos reservados.</p>
 </footer>
 
 <a href="https://wa.me/56974464827?text=Hola" class="whatsapp-float">
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script>
-    // Menú Hamburguesa
     function toggleMenu() {
-        const hamburger = document.querySelector(".hamburger");
-        const navMenu = document.querySelector(".nav-menu");
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
+        document.querySelector(".hamburger").classList.toggle("active");
+        document.querySelector(".nav-menu").classList.toggle("active");
     }
-
     function closeMenu() {
         document.querySelector(".hamburger").classList.remove("active");
         document.querySelector(".nav-menu").classList.remove("active");
     }
 
-    // Carrusel Automático
     let slideIndex = 1;
     let autoSlideTimer;
     showSlides(slideIndex);
     startAutoSlide();
 
-    function plusSlides(n) {
-        clearInterval(autoSlideTimer);
-        showSlides(slideIndex += n);
-    }
-    function currentSlide(n) {
-        clearInterval(autoSlideTimer);
-        showSlides(slideIndex = n);
-    }
+    function plusSlides(n) { clearInterval(autoSlideTimer); showSlides(slideIndex += n); }
     function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
+        let i; let slides = document.getElementsByClassName("mySlides");
         if (n > slides.length) {slideIndex = 1}    
         if (n < 1) {slideIndex = slides.length}
         for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-        for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
         slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " active";
     }
-    function startAutoSlide() {
-        autoSlideTimer = setInterval(function() { showSlides(slideIndex += 1); }, 4000);
-    }
+    function startAutoSlide() { autoSlideTimer = setInterval(function() { showSlides(slideIndex += 1); }, 4000); }
 </script>
 
 </body>
