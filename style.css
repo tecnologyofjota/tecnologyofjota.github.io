@@ -23,24 +23,28 @@ body {
 }
 
 /* --- NAVBAR (Barra de Navegación) --- */
+/* --- NAVBAR (Barra de Navegación PRO) --- */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.95); /* Negro casi opaco */
+    background-color: #000; /* Fondo negro sólido */
     border-bottom: 1px solid #333;
     z-index: 1000;
-    padding: 0.8rem 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-container {
+    width: 100%;
     max-width: 1200px;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
 }
 
 .nav-logo {
@@ -52,38 +56,72 @@ body {
 }
 
 .nav-menu {
-    list-style: none;
     display: flex;
+    list-style: none;
     gap: 2rem;
     margin: 0;
     padding: 0;
 }
 
-.nav-menu li a {
+.nav-link {
     text-decoration: none;
     color: var(--text-main);
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: color 0.3s;
     text-transform: uppercase;
-    font-size: 0.9rem;
 }
 
-.nav-menu li a:hover {
+.nav-link:hover {
     color: var(--gold-text);
 }
 
-/* Ajuste menú en movil */
+/* Botón Hamburguesa (Oculto en PC) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--text-main);
+}
+
+/* --- ESTILOS MÓVILES (Menú Hamburguesa) --- */
 @media screen and (max-width: 768px) {
+    .hamburger {
+        display: block; /* Aparece el botón */
+    }
+
+    /* Animación de las barras al abrirse (forman una X) */
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* El menú oculto */
     .nav-menu {
-        gap: 1rem;
-        font-size: 0.8rem;
-    }
-    .nav-container {
-        padding: 0 1rem;
+        position: fixed;
+        left: -100%; /* Fuera de la pantalla a la izquierda */
+        top: 60px; /* Debajo de la barra */
         flex-direction: column;
+        background-color: #050505; /* Fondo oscuro */
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        border-bottom: 2px solid var(--gold-text);
+        padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.5);
     }
-    .nav-logo {
-        margin-bottom: 10px;
+
+    .nav-menu.active {
+        left: 0; /* Entra a la pantalla */
+    }
+
+    .nav-item {
+        margin: 1.5rem 0;
     }
 }
 
