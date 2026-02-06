@@ -9,17 +9,53 @@
 </head>
 <body>
 
-<header>
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#inicio" class="nav-logo">TOJ</a>
+        <ul class="nav-menu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#portafolio">Portafolio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header id="inicio">
     <div class="logo-container">
-        <img src="logo.png" alt="TOJ Logo" class="logo-web">
+        <img src="src/logo.png" alt="TOJ Logo" class="logo-web">
     </div>
     <h1>Tecnology of Jota</h1>
     <p class="tagline">Innovación en Software & Hardware</p>
 </header>
 
 <div class="container">
+
+    <section id="servicios">
+        <h2>Nuestras Soluciones</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Sistemas POS</h3>
+                <p>Software a medida. Olvídate de los errores manuales y agiliza tu atención.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🌐</div>
+                <h3>Sitios Web</h3>
+                <p>Landing pages y catálogos digitales que convierten visitantes en clientes.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔧</div>
+                <h3>Soporte IT</h3>
+                <p>Mantenimiento de hardware, instalación de redes e impresoras térmicas.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
     
-    <section class="portfolio-section">
+    <section id="portafolio" class="portfolio-section">
         <h2>Portafolio Destacado</h2>
         <p class="section-subtitle">Explora nuestros últimos desarrollos y sistemas implementados.</p>
 
@@ -27,7 +63,7 @@
             
             <div class="mySlides fade">
                 <div class="slide-content">
-                    <img src="src/pos1.png" style="width:100%; cursor: pointer;" onclick="openLightbox(this)">
+                    <img src="src/pos1.png" style="width:100%">
                     <div class="text-overlay">
                         <h3>Sistema POS Gastronómico</h3>
                         <p>Interfaz táctil con control de stock y comandas.</p>
@@ -37,7 +73,7 @@
 
             <div class="mySlides fade">
                 <div class="slide-content">
-                    <img src="src/pos2.png" style="width:100%; cursor: pointer;" onclick="openLightbox(this)">
+                    <img src="src/pos2.png" style="width:100%" onerror="this.src='src/pos1.png'">
                     <div class="text-overlay">
                         <h3>Reportes en Tiempo Real</h3>
                         <p>Métricas de venta diarias para toma de decisiones.</p>
@@ -47,7 +83,7 @@
 
             <div class="mySlides fade">
                 <div class="slide-content">
-                    <img src="src/pos3.png" style="width:100%; cursor: pointer;" onclick="openLightbox(this)">
+                    <img src="src/pos3.png" style="width:100%" onerror="this.src='src/pos1.png'">
                     <div class="text-overlay">
                         <h3>Desarrollo Web</h3>
                         <p>Sitios optimizados para móviles y SEO.</p>
@@ -69,25 +105,30 @@
 
     <hr class="divider">
 
-    <section>
-        <h2>Nuestros Servicios</h2>
+    <section id="nosotros">
+        <h2>Sobre Nosotros</h2>
         <div class="grid">
-            <div class="card">
-                <div class="icon">💻</div>
-                <h3>Sistemas POS</h3>
-                <p>Software a medida. Olvídate de los errores manuales y agiliza tu atención.</p>
+            <div class="card mission-card">
+                <h3>Nuestra Misión</h3>
+                <p>Digitalizar y potenciar los negocios gastronómicos y comerciales mediante soluciones tecnológicas accesibles, robustas y fáciles de usar, permitiendo a nuestros clientes enfocarse en lo que mejor saben hacer: vender.</p>
             </div>
-            <div class="card">
-                <div class="icon">🌐</div>
-                <h3>Sitios Web</h3>
-                <p>Landing pages y catálogos digitales que convierten visitantes en clientes.</p>
-            </div>
-            <div class="card">
-                <div class="icon">🔧</div>
-                <h3>Soporte IT</h3>
-                <p>Mantenimiento de hardware, instalación de redes e impresoras térmicas.</p>
+            <div class="card vision-card">
+                <h3>Nuestra Visión</h3>
+                <p>Ser el referente líder en innovación tecnológica para PYMES en la región, reconocidos por la calidad de nuestro software, la excelencia en el soporte técnico y el compromiso con el crecimiento de nuestros clientes.</p>
             </div>
         </div>
+    </section>
+
+    <section id="contacto" class="contact-section">
+        <h2>¿Listo para modernizar tu negocio?</h2>
+        
+        <p style="color: #a0a0a0; margin-bottom: 2rem;">Contáctanos hoy mismo para una evaluación gratuita.</p>
+
+        <a href="https://wa.me/56974464827?text=Hola,%20quisiera%20más%20información%20sobre%20los%20sistemas." class="btn-contact">
+            Cotizar por WhatsApp
+        </a>
+        
+        <p class="email-contact">Santiago / Rancagua</p>
     </section>
 
 </div>
@@ -102,75 +143,8 @@
     </svg>
 </a>
 
-    <section class="contact-section">
-    <h2>¿Listo para modernizar tu negocio?</h2>
-    
-    <a href="https://wa.me/56974464827?text=Hola..." class="btn-contact">
-        Cotizar por WhatsApp
-    </a>
-    
-    <a href="mailto:tecnologyofjota@gmail.com" class="btn-email">
-        Enviar Correo
-    </a>
-    
-    <p class="email-contact">Santiago / Rancagua</p>
-</section>
-
 <script>
-    let slideIndex = 1;
-    let autoSlideTimer; // Variable para controlar el timer
-
-    // Iniciar
-    showSlides(slideIndex);
-    startAutoSlide(); // Inicia el movimiento automático
-
-    // Función para flechas (Siguiente/Anterior)
-    function plusSlides(n) {
-        clearInterval(autoSlideTimer); // Detiene el automático si el usuario toca
-        showSlides(slideIndex += n);
-        // Opcional: Reiniciar el timer si quieres que vuelva a andar solo
-        // startAutoSlide(); 
-    }
-
-    // Función para puntos
-    function currentSlide(n) {
-        clearInterval(autoSlideTimer);
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        
-        if (n > slides.length) {slideIndex = 1}    
-        if (n < 1) {slideIndex = slides.length}
-        
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        
-        slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " active";
-    }
-
-    // Función que mueve el slide solo
-    function startAutoSlide() {
-        autoSlideTimer = setInterval(function() {
-            showSlides(slideIndex += 1);
-        }, 4000); // 4 Segundos
-    }
-</script>
-<div id="myLightbox" class="lightbox-modal">
-  <span class="close-btn" onclick="closeLightbox()">&times;</span>
-  <img class="lightbox-content" id="img01">
-</div>
-
-<script>
-    // --- Lógica del Carrusel ---
+    // --- Lógica del Carrusel Única y Limpia ---
     let slideIndex = 1;
     let autoSlideTimer;
 
@@ -191,14 +165,17 @@
         let i;
         let slides = document.getElementsByClassName("mySlides");
         let dots = document.getElementsByClassName("dot");
+        
         if (n > slides.length) {slideIndex = 1}    
         if (n < 1) {slideIndex = slides.length}
+        
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";  
         }
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
+        
         slides[slideIndex-1].style.display = "block";  
         dots[slideIndex-1].className += " active";
     }
@@ -208,26 +185,7 @@
             showSlides(slideIndex += 1);
         }, 4000);
     }
-
-    // --- NUEVA Lógica del Lightbox (Pantalla Completa) ---
-    function openLightbox(element) {
-        // Detenemos el carrusel para que no cambie la foto mientras la miras
-        clearInterval(autoSlideTimer);
-        
-        var modal = document.getElementById("myLightbox");
-        var modalImg = document.getElementById("img01");
-        
-        modal.style.display = "block";
-        modalImg.src = element.src; // Pone la misma foto que clickeaste
-    }
-
-    function closeLightbox() {
-        var modal = document.getElementById("myLightbox");
-        modal.style.display = "none";
-        
-        // Reactivamos el carrusel
-        startAutoSlide();
-    }
 </script>
+
 </body>
 </html>
