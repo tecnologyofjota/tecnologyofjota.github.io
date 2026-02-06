@@ -1,105 +1,194 @@
-/* Paleta de Colores TOJ */
+/* Paleta de Colores Profesional */
 :root {
-    --bg-dark: #0a0a0a;
-    --card-bg: #1a1a1a;
-    --gold-metal: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-    --silver-metal: linear-gradient(135deg, #707070, #e0e0e0, #8d8d8d, #ffffff, #636363);
-    --text-gold: #fcf6ba;
-    --border-color: #333;
+    --bg-dark: #050505; /* Negro casi puro */
+    --card-bg: #121212;
+    /* Dorado metálico más sobrio */
+    --gold-metal: linear-gradient(90deg, #ae8625, #f7ef8a, #d2ac47, #edc967);
+    --gold-text: #deb853; 
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
 }
 
 body {
     background-color: var(--bg-dark);
-    /* Simulación de textura de fondo */
-    background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
-    background-size: 25px 25px;
-    color: #e0e0e0;
-    font-family: 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-main);
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
     margin: 0;
     line-height: 1.6;
 }
 
+/* --- HEADER --- */
 header {
-    background: black;
-    border-bottom: 2px solid #bf953f;
-    padding: 3rem 1rem;
+    background: #000;
+    padding: 3rem 1rem 2rem;
     text-align: center;
+    /* Sutil línea dorada abajo */
+    border-bottom: 1px solid #333;
 }
 
 .logo-web {
-    width: 150px; /* Ajusta según tu imagen */
-    border-radius: 50%;
-    border: 3px solid transparent;
-    background-image: var(--gold-metal);
-    background-origin: border-box;
-    padding: 5px;
-    box-shadow: 0 0 20px rgba(191, 149, 63, 0.4);
+    width: 140px; 
+    /* Logo limpio: Sin bordes, sin sombras, sin fondo */
+    display: block;
+    margin: 0 auto 1rem;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.8)); /* Sombra suave solo para separarlo del fondo */
 }
 
-h1, h2 {
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    letter-spacing: 2px;
     background: var(--gold-metal);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
+.tagline {
+    color: var(--text-muted);
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+}
+
+/* --- CONTENEDORES --- */
 .container {
-    max-width: 1000px;
+    max-width: 900px;
     margin: auto;
     padding: 2rem;
 }
 
+h2 {
+    color: var(--gold-text);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* --- PORTAFOLIO / CARRUSEL --- */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+}
+
+.mySlides {
+    display: none;
+}
+
+.slide-content img {
+    vertical-align: middle;
+    filter: brightness(0.7); /* Oscurece un poco la imagen para que el texto se lea */
+    transition: filter 0.3s;
+}
+
+.slide-content:hover img {
+    filter: brightness(1);
+}
+
+.text-overlay {
+    color: #f2f2f2;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    width: 100%;
+    padding: 40px 20px 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.text-overlay h3 { margin: 0; color: var(--gold-text); font-size: 1.4rem; }
+.text-overlay p { margin: 5px 0 0; font-size: 0.9rem; }
+
+/* Animación Fade */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* Puntos de navegación */
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 4px;
+    background-color: #333;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active { background-color: var(--gold-text); }
+
+/* --- SERVICIOS (GRID) --- */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .card {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
     padding: 2rem;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #222;
+    transition: transform 0.3s, border-color 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    border-color: #bf953f;
+    transform: translateY(-5px);
+    border-color: #555;
 }
 
-/* Efecto de línea dorada superior en las tarjetas */
-.card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 3px;
-    background: var(--gold-metal);
+.icon { font-size: 2rem; margin-bottom: 1rem; }
+
+/* --- CONTACTO Y FOOTER --- */
+.divider {
+    border: 0;
+    height: 1px;
+    background: #333;
+    margin: 4rem 0;
 }
 
 .btn-contact {
     display: inline-block;
-    margin-top: 2rem;
-    padding: 1rem 2.5rem;
+    padding: 1rem 3rem;
     background: var(--gold-metal);
     color: #000;
     font-weight: bold;
     text-decoration: none;
     border-radius: 50px;
-    text-transform: uppercase;
-    transition: box-shadow 0.3s ease;
+    margin-top: 1.5rem;
+    transition: opacity 0.3s;
 }
 
-.btn-contact:hover {
-    box-shadow: 0 0 25px rgba(252, 246, 186, 0.6);
-}
+.btn-contact:hover { opacity: 0.9; }
+
+.email-contact { margin-top: 1rem; color: var(--text-muted); }
 
 footer {
     text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
-    color: #666;
-    border-top: 1px solid #222;
+    padding: 3rem 1rem;
+    font-size: 0.8rem;
+    color: #555;
+    background: #000;
 }
