@@ -3,51 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnology of Jota | TOJ - Soluciones Pro</title>
+    <title>Tecnology of Jota | TOJ - Soluciones Profesionales</title>
+    <link rel="icon" type="image/png" href="corta.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <img src="logo.png" alt="TOJ Logo" class="logo-web">
+    <div class="logo-container">
+        <img src="logo.png" alt="TOJ Logo" class="logo-web">
+    </div>
     <h1>Tecnology of Jota</h1>
-    <p style="color: #8d8d8d;">Innovación en Software & Hardware</p>
+    <p class="tagline">Innovación en Software & Hardware</p>
 </header>
 
 <div class="container">
     
-    <section>
-        <h2 style="text-align: center;">Nuestras Soluciones</h2>
-        <div class="grid">
+    <section class="portfolio-section">
+        <h2>Portafolio Destacado</h2>
+        <p class="section-subtitle">Explora nuestros últimos desarrollos y sistemas implementados.</p>
+
+        <div class="slideshow-container">
             
-            <div class="card">
-                <h3>Sistemas POS</h3>
-                <p>Especialistas en puntos de venta para locales de comida y carritos. Control total de ventas y stock.</p>
-                <ul>
-                    <li>Comandas digitales</li>
-                    <li>Cuadratura de caja</li>
-                    <li>Soporte técnico</li>
-                </ul>
+            <div class="mySlides fade">
+                <div class="slide-content">
+                    <img src="https://via.placeholder.com/800x400/000000/bf953f?text=Sistema+POS+Wafleria" style="width:100%">
+                    <div class="text-overlay">
+                        <h3>Sistema POS Gastronómico</h3>
+                        <p>Interfaz táctil con control de stock y comandas a cocina.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="card">
-                <h3>Desarrollo Web</h3>
-                <p>Creamos tu presencia digital con sitios modernos, rápidos y optimizados para móviles.</p>
+            <div class="mySlides fade">
+                <div class="slide-content">
+                    <img src="https://via.placeholder.com/800x400/1a1a1a/bf953f?text=Dashboard+de+Ventas" style="width:100%">
+                    <div class="text-overlay">
+                        <h3>Reportes en Tiempo Real</h3>
+                        <p>Métricas de venta diarias, mensuales y productos más vendidos.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="card">
-                <h3>Servicios Informáticos</h3>
-                <p>Configuración de hardware, redes y soporte personalizado para que tu negocio no se detenga.</p>
+            <div class="mySlides fade">
+                <div class="slide-content">
+                    <img src="https://via.placeholder.com/800x400/000000/bf953f?text=Diseño+Web+Responsive" style="width:100%">
+                    <div class="text-overlay">
+                        <h3>Desarrollo Web</h3>
+                        <p>Sitios optimizados para móviles y SEO.</p>
+                    </div>
+                </div>
             </div>
 
+            <div style="text-align:center; margin-top: 15px;">
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+            </div>
         </div>
     </section>
 
-    <section style="text-align: center; margin-top: 4rem;">
-        <h2>¿Listo para empezar?</h2>
-        <p>Hablemos sobre tu próximo proyecto.</p>
-        <a href="https://wa.me/56974464827?text=Hola,%20vengo%20de%20tu%20web%20y%20quiero%20cotizar" class="btn-contact">Contactar por WhatsApp</a>
-        <p style="margin-top: 1rem;">tecnologyofjota@gmail.com</p>
+    <hr class="divider">
+
+    <section>
+        <h2>Nuestros Servicios</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Sistemas POS</h3>
+                <p>Software a medida para tu negocio. Olvídate de los errores manuales y agiliza tu atención.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🌐</div>
+                <h3>Sitios Web</h3>
+                <p>Landing pages y catálogos digitales que convierten visitantes en clientes.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔧</div>
+                <h3>Soporte IT</h3>
+                <p>Mantenimiento de hardware, instalación de redes e impresoras térmicas.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <h2>¿Listo para modernizar tu negocio?</h2>
+        <a href="https://wa.me/56974464827?text=Hola,%20vi%20tu%20portafolio%20y%20me%20interesa%20cotizar" class="btn-contact">
+            Cotizar por WhatsApp
+        </a>
+        <p class="email-contact">tecnologyofjota@gmail.com</p>
     </section>
 
 </div>
@@ -55,6 +99,28 @@
 <footer>
     <p>&copy; 2026 Tecnology of Jota - TOJ. Todos los derechos reservados.</p>
 </footer>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 4000); // Cambia imagen cada 4 segundos
+    }
+</script>
 
 </body>
 </html>
