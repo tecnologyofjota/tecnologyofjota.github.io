@@ -1,0 +1,105 @@
+/* Paleta de Colores TOJ */
+:root {
+    --bg-dark: #0a0a0a;
+    --card-bg: #1a1a1a;
+    --gold-metal: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    --silver-metal: linear-gradient(135deg, #707070, #e0e0e0, #8d8d8d, #ffffff, #636363);
+    --text-gold: #fcf6ba;
+    --border-color: #333;
+}
+
+body {
+    background-color: var(--bg-dark);
+    /* Simulación de textura de fondo */
+    background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
+    background-size: 25px 25px;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+header {
+    background: black;
+    border-bottom: 2px solid #bf953f;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.logo-web {
+    width: 150px; /* Ajusta según tu imagen */
+    border-radius: 50%;
+    border: 3px solid transparent;
+    background-image: var(--gold-metal);
+    background-origin: border-box;
+    padding: 5px;
+    box-shadow: 0 0 20px rgba(191, 149, 63, 0.4);
+}
+
+h1, h2 {
+    background: var(--gold-metal);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #bf953f;
+}
+
+/* Efecto de línea dorada superior en las tarjetas */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: var(--gold-metal);
+}
+
+.btn-contact {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    background: var(--gold-metal);
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    transition: box-shadow 0.3s ease;
+}
+
+.btn-contact:hover {
+    box-shadow: 0 0 25px rgba(252, 246, 186, 0.6);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #666;
+    border-top: 1px solid #222;
+}
