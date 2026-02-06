@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+f<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -12,12 +12,19 @@
 <nav class="navbar">
     <div class="nav-container">
         <a href="#inicio" class="nav-logo">TOJ</a>
+        
+        <div class="hamburger" onclick="toggleMenu()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
         <ul class="nav-menu">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#portafolio">Portafolio</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li class="nav-item"><a href="#inicio" class="nav-link" onclick="closeMenu()">Inicio</a></li>
+            <li class="nav-item"><a href="#servicios" class="nav-link" onclick="closeMenu()">Servicios</a></li>
+            <li class="nav-item"><a href="#portafolio" class="nav-link" onclick="closeMenu()">Portafolio</a></li>
+            <li class="nav-item"><a href="#nosotros" class="nav-link" onclick="closeMenu()">Nosotros</a></li>
+            <li class="nav-item"><a href="#contacto" class="nav-link" onclick="closeMenu()">Contacto</a></li>
         </ul>
     </div>
 </nav>
@@ -184,6 +191,20 @@
         autoSlideTimer = setInterval(function() {
             showSlides(slideIndex += 1);
         }, 4000);
+    }
+
+    function toggleMenu() {
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    }
+
+    function closeMenu() {
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
     }
 </script>
 
