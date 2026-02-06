@@ -1,12 +1,12 @@
 /* Paleta de Colores Profesional */
 :root {
-    --bg-dark: #050505; /* Negro casi puro */
+    --bg-dark: #050505;
     --card-bg: #121212;
-    /* Dorado metálico más sobrio */
     --gold-metal: linear-gradient(90deg, #ae8625, #f7ef8a, #d2ac47, #edc967);
     --gold-text: #deb853; 
     --text-main: #e0e0e0;
     --text-muted: #a0a0a0;
+    --whatsapp-green: #25d366;
 }
 
 body {
@@ -20,18 +20,18 @@ body {
 /* --- HEADER --- */
 header {
     background: #000;
-    padding: 3rem 1rem 2rem;
+    padding: 2rem 1rem; /* Menos padding arriba/abajo */
     text-align: center;
-    /* Sutil línea dorada abajo */
     border-bottom: 1px solid #333;
 }
 
 .logo-web {
-    width: 140px; 
-    /* Logo limpio: Sin bordes, sin sombras, sin fondo */
+    /* CAMBIO: Logo mucho más grande (antes 140px) */
+    width: 350px; 
+    max-width: 90%; /* Para que no se salga en celulares */
     display: block;
     margin: 0 auto 1rem;
-    filter: drop-shadow(0 0 10px rgba(0,0,0,0.8)); /* Sombra suave solo para separarlo del fondo */
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.9));
 }
 
 h1 {
@@ -54,7 +54,8 @@ h1 {
 
 /* --- CONTENEDORES --- */
 .container {
-    max-width: 900px;
+    /* CAMBIO: Ancho aumentado a 1200px para llenar más la pantalla en PC */
+    max-width: 1200px; 
     margin: auto;
     padding: 2rem;
 }
@@ -78,7 +79,7 @@ h2 {
 /* --- PORTAFOLIO / CARRUSEL --- */
 .slideshow-container {
     position: relative;
-    max-width: 100%;
+    max-width: 1000px; /* El carrusel también más ancho */
     margin: auto;
     border-radius: 12px;
     overflow: hidden;
@@ -92,27 +93,50 @@ h2 {
 
 .slide-content img {
     vertical-align: middle;
-    filter: brightness(0.7); /* Oscurece un poco la imagen para que el texto se lea */
+    filter: brightness(0.8);
     transition: filter 0.3s;
-}
-
-.slide-content:hover img {
-    filter: brightness(1);
 }
 
 .text-overlay {
     color: #f2f2f2;
     position: absolute;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
     width: 100%;
-    padding: 40px 20px 20px;
+    padding: 60px 20px 20px; /* Más espacio para texto */
     text-align: center;
     box-sizing: border-box;
 }
 
-.text-overlay h3 { margin: 0; color: var(--gold-text); font-size: 1.4rem; }
-.text-overlay p { margin: 5px 0 0; font-size: 0.9rem; }
+.text-overlay h3 { margin: 0; color: var(--gold-text); font-size: 1.5rem; }
+.text-overlay p { margin: 5px 0 0; font-size: 1rem; }
+
+/* Botones Siguiente / Anterior */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.3); /* Fondo semitransparente */
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(222, 184, 83, 0.8); /* Color dorado al pasar mouse */
+    color: black;
+}
 
 /* Animación Fade */
 .fade {
@@ -127,27 +151,29 @@ h2 {
 
 /* Puntos de navegación */
 .dot {
-    height: 10px;
-    width: 10px;
+    height: 12px;
+    width: 12px;
     margin: 0 4px;
     background-color: #333;
     border-radius: 50%;
     display: inline-block;
+    cursor: pointer;
     transition: background-color 0.6s ease;
 }
-.active { background-color: var(--gold-text); }
+.active, .dot:hover { background-color: var(--gold-text); }
 
 /* --- SERVICIOS (GRID) --- */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
+    /* Optimizado para llenar mejor el espacio */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
     margin-top: 2rem;
 }
 
 .card {
     background: var(--card-bg);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 8px;
     text-align: center;
     border: 1px solid #222;
@@ -159,36 +185,34 @@ h2 {
     border-color: #555;
 }
 
-.icon { font-size: 2rem; margin-bottom: 1rem; }
+.icon { font-size: 2.5rem; margin-bottom: 1rem; }
 
-/* --- CONTACTO Y FOOTER --- */
-.divider {
-    border: 0;
-    height: 1px;
-    background: #333;
-    margin: 4rem 0;
-}
-
-.btn-contact {
-    display: inline-block;
-    padding: 1rem 3rem;
-    background: var(--gold-metal);
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
+/* --- BOTON FLOTANTE WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--whatsapp-green);
+    color: #FFF;
     border-radius: 50px;
-    margin-top: 1.5rem;
-    transition: opacity 0.3s;
-}
-
-.btn-contact:hover { opacity: 0.9; }
-
-.email-contact { margin-top: 1rem; color: var(--text-muted); }
-
-footer {
     text-align: center;
-    padding: 3rem 1rem;
-    font-size: 0.8rem;
-    color: #555;
-    background: #000;
+    font-size: 35px; /* Tamaño del icono */
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s;
 }
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #1ebe57;
+}
+
+/* --- FOOTER --- */
+.divider { border: 0; height: 1px; background: #333; margin: 4rem 0; }
+footer { text-align: center; padding: 3rem 1rem; font-size: 0.8rem; color: #555; background: #000; }
