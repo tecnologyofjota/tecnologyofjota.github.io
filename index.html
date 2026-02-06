@@ -27,7 +27,7 @@
             
             <div class="mySlides fade">
                 <div class="slide-content">
-                    <img src="src/pos1.png" style="width:100%">
+                    <img src="src/pos1.png" style="width:100%; cursor: pointer;" onclick="openLightbox(this)">
                     <div class="text-overlay">
                         <h3>Sistema POS Gastronómico</h3>
                         <p>Interfaz táctil con control de stock y comandas.</p>
@@ -37,7 +37,7 @@
 
             <div class="mySlides fade">
                 <div class="slide-content">
-                    <img src="src/pos2.png" style="width:100%" onerror="this.src='src/pos1.png'">
+                    <img src="src/pos2.png" style="width:100%; cursor: pointer;" onclick="openLightbox(this)">
                     <div class="text-overlay">
                         <h3>Reportes en Tiempo Real</h3>
                         <p>Métricas de venta diarias para toma de decisiones.</p>
@@ -47,7 +47,7 @@
 
             <div class="mySlides fade">
                 <div class="slide-content">
-                    <img src="src/pos3.png" style="width:100%" onerror="this.src='src/pos1.png'">
+                    <img src="src/pos3.png" style="width:100%; cursor: pointer;" onclick="openLightbox(this)">
                     <div class="text-overlay">
                         <h3>Desarrollo Web</h3>
                         <p>Sitios optimizados para móviles y SEO.</p>
@@ -102,6 +102,20 @@
     </svg>
 </a>
 
+    <section class="contact-section">
+    <h2>¿Listo para modernizar tu negocio?</h2>
+    
+    <a href="https://wa.me/56974464827?text=Hola..." class="btn-contact">
+        Cotizar por WhatsApp
+    </a>
+    
+    <a href="mailto:tecnologyofjota@gmail.com" class="btn-email">
+        Enviar Correo
+    </a>
+    
+    <p class="email-contact">Santiago / Rancagua</p>
+</section>
+
 <script>
     let slideIndex = 1;
     let autoSlideTimer; // Variable para controlar el timer
@@ -150,6 +164,70 @@
         }, 4000); // 4 Segundos
     }
 </script>
+<div id="myLightbox" class="lightbox-modal">
+  <span class="close-btn" onclick="closeLightbox()">&times;</span>
+  <img class="lightbox-content" id="img01">
+</div>
 
+<script>
+    // --- Lógica del Carrusel ---
+    let slideIndex = 1;
+    let autoSlideTimer;
+
+    showSlides(slideIndex);
+    startAutoSlide();
+
+    function plusSlides(n) {
+        clearInterval(autoSlideTimer); 
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        clearInterval(autoSlideTimer);
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+    }
+
+    function startAutoSlide() {
+        autoSlideTimer = setInterval(function() {
+            showSlides(slideIndex += 1);
+        }, 4000);
+    }
+
+    // --- NUEVA Lógica del Lightbox (Pantalla Completa) ---
+    function openLightbox(element) {
+        // Detenemos el carrusel para que no cambie la foto mientras la miras
+        clearInterval(autoSlideTimer);
+        
+        var modal = document.getElementById("myLightbox");
+        var modalImg = document.getElementById("img01");
+        
+        modal.style.display = "block";
+        modalImg.src = element.src; // Pone la misma foto que clickeaste
+    }
+
+    function closeLightbox() {
+        var modal = document.getElementById("myLightbox");
+        modal.style.display = "none";
+        
+        // Reactivamos el carrusel
+        startAutoSlide();
+    }
+</script>
 </body>
 </html>
