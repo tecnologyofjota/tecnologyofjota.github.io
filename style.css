@@ -9,26 +9,95 @@
     --whatsapp-green: #25d366;
 }
 
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave entre secciones */
+}
+
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
     margin: 0;
     line-height: 1.6;
+    padding-top: 60px; /* Espacio para que la barra de navegación no tape el contenido */
+}
+
+/* --- NAVBAR (Barra de Navegación) --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Negro casi opaco */
+    border-bottom: 1px solid #333;
+    z-index: 1000;
+    padding: 0.8rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--gold-text);
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 1rem;
+    transition: color 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.nav-menu li a:hover {
+    color: var(--gold-text);
+}
+
+/* Ajuste menú en movil */
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        gap: 1rem;
+        font-size: 0.8rem;
+    }
+    .nav-container {
+        padding: 0 1rem;
+        flex-direction: column;
+    }
+    .nav-logo {
+        margin-bottom: 10px;
+    }
 }
 
 /* --- HEADER --- */
 header {
     background: #000;
-    padding: 2rem 1rem; /* Menos padding arriba/abajo */
+    padding: 3rem 1rem 2rem;
     text-align: center;
     border-bottom: 1px solid #333;
 }
 
 .logo-web {
-    /* CAMBIO: Logo mucho más grande (antes 140px) */
     width: 350px; 
-    max-width: 90%; /* Para que no se salga en celulares */
+    max-width: 90%;
     display: block;
     margin: 0 auto 1rem;
     filter: drop-shadow(0 0 15px rgba(0,0,0,0.9));
@@ -54,7 +123,6 @@ h1 {
 
 /* --- CONTENEDORES --- */
 .container {
-    /* CAMBIO: Ancho aumentado a 1200px para llenar más la pantalla en PC */
     max-width: 1200px; 
     margin: auto;
     padding: 2rem;
@@ -65,8 +133,9 @@ h2 {
     text-align: center;
     text-transform: uppercase;
     font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     letter-spacing: 1px;
+    padding-top: 2rem; /* Espacio extra para los anclajes del menú */
 }
 
 .section-subtitle {
@@ -79,7 +148,7 @@ h2 {
 /* --- PORTAFOLIO / CARRUSEL --- */
 .slideshow-container {
     position: relative;
-    max-width: 1000px; /* El carrusel también más ancho */
+    max-width: 1000px;
     margin: auto;
     border-radius: 12px;
     overflow: hidden;
@@ -87,15 +156,15 @@ h2 {
     border: 1px solid #333;
 }
 
-.mySlides {
-    display: none;
-}
+.mySlides { display: none; }
 
 .slide-content img {
     vertical-align: middle;
     filter: brightness(0.8);
     transition: filter 0.3s;
 }
+/* Quitamos el puntero de mano ya que no hay lightbox */
+.slide-content img { cursor: default; }
 
 .text-overlay {
     color: #f2f2f2;
@@ -103,7 +172,7 @@ h2 {
     bottom: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
     width: 100%;
-    padding: 60px 20px 20px; /* Más espacio para texto */
+    padding: 60px 20px 20px;
     text-align: center;
     box-sizing: border-box;
 }
@@ -111,7 +180,6 @@ h2 {
 .text-overlay h3 { margin: 0; color: var(--gold-text); font-size: 1.5rem; }
 .text-overlay p { margin: 5px 0 0; font-size: 1rem; }
 
-/* Botones Siguiente / Anterior */
 .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -125,31 +193,15 @@ h2 {
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-    background-color: rgba(0,0,0,0.3); /* Fondo semitransparente */
+    background-color: rgba(0,0,0,0.3);
 }
 
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
+.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev:hover, .next:hover { background-color: rgba(222, 184, 83, 0.8); color: black; }
 
-.prev:hover, .next:hover {
-    background-color: rgba(222, 184, 83, 0.8); /* Color dorado al pasar mouse */
-    color: black;
-}
+.fade { animation-name: fade; animation-duration: 1.5s; }
+@keyframes fade { from {opacity: .4} to {opacity: 1} }
 
-/* Animación Fade */
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-}
-
-/* Puntos de navegación */
 .dot {
     height: 12px;
     width: 12px;
@@ -162,10 +214,9 @@ h2 {
 }
 .active, .dot:hover { background-color: var(--gold-text); }
 
-/* --- SERVICIOS (GRID) --- */
+/* --- SERVICIOS & MISION/VISION (GRID) --- */
 .grid {
     display: grid;
-    /* Optimizado para llenar mejor el espacio */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
@@ -185,6 +236,11 @@ h2 {
     border-color: #555;
 }
 
+/* Estilo especial para tarjetas de Misión y Visión */
+.mission-card, .vision-card {
+    border-top: 3px solid var(--gold-text); /* Borde dorado arriba */
+}
+
 .icon { font-size: 2.5rem; margin-bottom: 1rem; }
 
 /* --- BOTON FLOTANTE WHATSAPP --- */
@@ -198,7 +254,6 @@ h2 {
     color: #FFF;
     border-radius: 50px;
     text-align: center;
-    font-size: 35px; /* Tamaño del icono */
     box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
     z-index: 100;
     display: flex;
@@ -208,99 +263,22 @@ h2 {
     transition: transform 0.3s;
 }
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    background-color: #1ebe57;
-}
+.whatsapp-float:hover { transform: scale(1.1); background-color: #1ebe57; }
 
 /* --- FOOTER --- */
 .divider { border: 0; height: 1px; background: #333; margin: 4rem 0; }
-footer { text-align: center; padding: 3rem 1rem; font-size: 0.8rem; color: #555; background: #000; }
-
-
-
-/* --- ESTILOS NUEVOS PARA LIGHTBOX Y CORREO --- */
-
-/* Botón de Correo (Estilo Dorado Bordeado) */
-.btn-email {
+.contact-section { text-align: center; margin-bottom: 4rem; }
+.btn-contact {
     display: inline-block;
-    padding: 0.9rem 2.5rem;
-    background: transparent;
-    color: var(--gold-text);
-    border: 2px solid var(--gold-text);
+    padding: 1rem 3rem;
+    background: var(--gold-metal);
+    color: #000;
     font-weight: bold;
     text-decoration: none;
     border-radius: 50px;
-    margin-top: 1rem;
-    margin-left: 10px; /* Separación del botón de WhatsApp */
-    transition: all 0.3s ease;
+    transition: opacity 0.3s;
 }
+.btn-contact:hover { opacity: 0.9; }
+.email-contact { margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem;}
 
-.btn-email:hover {
-    background: var(--gold-text);
-    color: #000;
-}
-
-/* El visor de Pantalla Completa (Lightbox) */
-.lightbox-modal {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    z-index: 2000; /* Encima de todo */
-    padding-top: 50px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.95); /* Fondo negro casi opaco */
-}
-
-/* Imagen dentro del visor */
-.lightbox-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 1000px;
-    max-height: 85vh; /* Que no sea más alta que la pantalla */
-    object-fit: contain;
-    border: 2px solid var(--gold-text);
-    border-radius: 5px;
-    animation-name: zoom;
-    animation-duration: 0.4s;
-}
-
-/* Botón para cerrar (X) */
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.close-btn:hover,
-.close-btn:focus {
-    color: var(--gold-text);
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Animación de zoom al abrir */
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
-
-/* Ajuste para móviles */
-@media only screen and (max-width: 700px) {
-    .lightbox-content {
-        width: 100%;
-    }
-    .btn-email {
-        display: block; /* En celular, que ocupe otra línea */
-        margin-left: 0;
-    }
-}
+footer { text-align: center; padding: 3rem 1rem; font-size: 0.8rem; color: #555; background: #000; }
