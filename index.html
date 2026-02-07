@@ -1,558 +1,1073 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Tecnology of Jota | TOJ</title>
+
     <link rel="icon" type="image/png" href="src/logo.png">
+
     
+
     <style>
+
         /* --- 1. VARIABLES Y CONFIGURACIÓN --- */
+
         :root {
+
             --bg-dark: #0a0a0a;
+
             --bg-panel: #141414;
+
             --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+
             --gold-text: #deb853; 
+
             --text-main: #e0e0e0;
+
             --text-muted: #999;
+
             --whatsapp-green: #25d366;
+
         }
+
+
 
         html { scroll-behavior: smooth; }
 
+
+
         body {
+
             background-color: var(--bg-dark);
+
             color: var(--text-main);
+
             font-family: 'Segoe UI', 'Roboto', sans-serif;
+
             margin: 0;
+
             padding-top: 70px;
+
             overflow-x: hidden;
+
             
+
             background-image: 
+
                 radial-gradient(#1a1a1a 15%, transparent 16%),
+
                 radial-gradient(#1a1a1a 15%, transparent 16%);
+
             background-size: 6px 6px;
+
             background-position: 0 0, 3px 3px;
+
         }
+
+
 
         /* --- 2. BARRA DE NAVEGACIÓN --- */
+
         .navbar {
+
             position: fixed; top: 0; left: 0; width: 100%;
+
             background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px);
+
             border-bottom: 1px solid #333; z-index: 1000; height: 70px;
+
             display: flex; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+
         }
+
+
 
         .nav-container {
+
             width: 100%; max-width: 1200px; margin: auto;
+
             display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
+
         }
 
+
+
         .nav-logo {
+
             font-size: 1.5rem; font-weight: bold; background: var(--gold-gradient);
+
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+
             text-decoration: none; letter-spacing: 2px; text-transform: uppercase;
+
         }
+
+
 
         .nav-menu { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
 
+
+
         .nav-link {
+
             text-decoration: none; color: var(--text-main); font-size: 0.85rem;
+
             text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s;
+
         }
+
         .nav-link:hover { color: var(--gold-text); }
 
+
+
         .hamburger { display: none; cursor: pointer; }
+
         .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--gold-text); transition: 0.3s; }
 
+
+
         @media screen and (max-width: 768px) {
+
             .hamburger { display: block; }
+
             .hamburger.active .bar:nth-child(2) { opacity: 0; }
+
             .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+
             .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
             .nav-menu {
+
                 position: fixed; left: -100%; top: 70px; flex-direction: column; background-color: #000;
+
                 width: 100%; height: 100vh; text-align: center; transition: 0.4s; padding-top: 40px; border-top: 1px solid var(--gold-text);
+
             }
+
             .nav-menu.active { left: 0; }
+
             .nav-item { margin: 20px 0; }
+
             .nav-link { font-size: 1.2rem; }
+
         }
+
+
 
         /* --- 3. SECCIONES Y DISEÑO --- */
+
         section { padding: 60px 20px; }
+
         .section-dark { background-color: #000; border-top: 1px solid #222; border-bottom: 1px solid #222; box-shadow: inset 0 0 50px #050505; }
+
         .container { max-width: 1100px; margin: auto; }
+
         
+
         header {
+
             text-align: center; padding: 4rem 1rem 2rem;
+
             background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+
             border-bottom: 1px solid var(--gold-text);
+
         }
+
+
 
         .logo-web {
+
             width: 450px; max-width: 90%; display: block; margin: 0 auto 1.5rem;
+
             filter: drop-shadow(0 0 20px rgba(191, 149, 63, 0.3));
+
         }
+
+
 
         h1 { font-size: 2.2rem; margin: 0; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; letter-spacing: 2px; }
+
         h2 { color: var(--gold-text); text-align: center; text-transform: uppercase; margin-bottom: 10px; font-size: 1.8rem; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+
         .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 0.95rem; letter-spacing: 1px; }
 
+
+
         .grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+
         .card {
+
             background: var(--bg-panel); padding: 2.5rem 1.5rem; border-radius: 4px; text-align: center;
+
             border: 1px solid #222; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.3s, border-color 0.3s;
+
             position: relative; overflow: hidden; flex: 1 1 280px; max-width: 350px;
+
         }
+
         .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--gold-gradient); transform: scaleX(0); transition: transform 0.3s; }
+
         .card:hover { transform: translateY(-5px); border-color: #333; }
+
         .card:hover::before { transform: scaleX(1); }
+
         .icon { font-size: 2.5rem; margin-bottom: 15px; filter: grayscale(100%); transition: 0.3s; }
+
         .card:hover .icon { filter: grayscale(0%); }
+
         .card h3 { color: #fff; margin: 10px 0; font-size: 1.2rem; }
+
         .card p { color: #aaa; font-size: 0.9rem; }
 
+
+
         /* --- 5. CARRUSEL --- */
+
         .slideshow-container {
+
             position: relative; 
+
             max-width: 900px; 
+
             margin: auto;
-            height: 500px; 
+
+            height: 500px; /* Alto fijo para evitar saltos */
+
             background-color: #000;
+
             border-radius: 8px; 
+
             overflow: hidden;
+
             border: 1px solid #333;
+
             box-shadow: 0 20px 50px rgba(0,0,0,0.7);
-        }
-        
-        .mySlides { 
-            display: none; 
-            height: 100%; 
-        }
-        
-        .slide-content {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+
         }
 
-        /* SOPORTE PARA YOUTUBE (IFRAME) */
-        .slide-content img, .slide-content video, .slide-content iframe { 
-            width: 100%; 
+        
+
+        .mySlides { 
+
+            display: none; 
+
             height: 100%; 
-            object-fit: contain; 
-            border: none;
-            display: block; 
+
         }
+
+        
+
+        .slide-content {
+
+            height: 100%;
+
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            position: relative;
+
+        }
+
+
+
+        .slide-content img { 
+
+            width: 100%; 
+
+            height: 100%; 
+
+            object-fit: contain; /* Ajuste perfecto de imagen */
+
+            display: block; 
+
+        }
+
+
 
         .text-overlay {
+
             position: absolute; 
+
             bottom: 0; 
+
             width: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 30%, transparent); 
+
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent); 
+
             padding: 50px 20px 20px; 
+
             text-align: center;
-            pointer-events: none; /* Permite clickear el video a través del texto */
+
         }
+
         
+
         .text-overlay h3 { 
+
             color: var(--gold-text); 
+
             margin: 0 0 5px 0; 
+
             font-size: 1.4rem; 
+
             text-shadow: 2px 2px 4px #000;
+
         }
+
         
+
         .text-overlay p {
+
             color: #fff;
+
             margin: 0;
+
             font-size: 0.95rem;
+
             text-shadow: 1px 1px 2px #000;
+
         }
+
         
+
         .prev, .next {
+
             cursor: pointer; position: absolute; top: 50%; padding: 16px; margin-top: -22px;
+
             color: white; font-weight: bold; font-size: 20px; background: rgba(0,0,0,0.5); border-radius: 3px; z-index: 10;
+
         }
+
         .next { right: 0; }
 
+
+
         /* --- 6. EXTRAS --- */
+
         .btn-contact {
+
             display: inline-block; padding: 15px 40px; background: var(--gold-gradient); color: #000;
+
             font-weight: bold; text-decoration: none; border-radius: 50px; margin-top: 20px;
+
             box-shadow: 0 0 20px rgba(222, 184, 83, 0.3); transition: 0.3s;
+
         }
+
         .btn-contact:hover { box-shadow: 0 0 30px rgba(222, 184, 83, 0.6); transform: scale(1.05); }
+
         .whatsapp-float {
+
             position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: var(--whatsapp-green);
+
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
+
             box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 2000; transition: transform 0.3s;
+
         }
+
         .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
+
         footer { background: #000; text-align: center; padding: 40px 20px; border-top: 1px solid #222; color: #555; font-size: 0.8rem; }
+
     </style>
+
 </head>
+
 <body>
 
+
+
 <nav class="navbar">
+
     <div class="nav-container">
+
         <a href="#inicio" class="nav-logo">TOJ</a>
+
         <div class="hamburger" onclick="toggleMenu()">
+
             <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+
         </div>
+
         <ul class="nav-menu">
+
             <li class="nav-item"><a href="#inicio" class="nav-link" onclick="closeMenu()">Inicio</a></li>
+
             <li class="nav-item"><a href="#servicios" class="nav-link" onclick="closeMenu()">Servicios</a></li>
+
             <li class="nav-item"><a href="#portafolio" class="nav-link" onclick="closeMenu()">Portafolio</a></li>
+
             <li class="nav-item"><a href="#nosotros" class="nav-link" onclick="closeMenu()">Nosotros</a></li>
+
             <li class="nav-item"><a href="#contacto" class="nav-link" onclick="closeMenu()">Contacto</a></li>
+
         </ul>
+
     </div>
+
 </nav>
 
+
+
 <header id="inicio">
+
     <img src="src/logo.png" alt="TOJ Logo" class="logo-web">
+
     <h1>Tecnology of Jota</h1>
+
     <p style="color: #888; letter-spacing: 3px; font-size: 0.9rem; margin-top: 10px;">SOLUCIONES DIGITALES & POS</p>
+
 </header>
 
+
+
 <section id="servicios">
+
     <div class="container">
+
         <h2>Nuestras Soluciones</h2>
+
         <p class="section-subtitle">Tecnología diseñada para potenciar tu negocio.</p>
+
         
+
         <div class="grid">
+
             <div class="card">
+
                 <div class="icon">💻</div>
+
                 <h3>Sistemas POS</h3>
+
                 <p>Software de punto de venta rápido y estable. Control de inventario y ventas en tiempo real.</p>
+
             </div>
+
             <div class="card">
+
                 <div class="icon">📱</div>
+
                 <h3>Apps Móviles</h3>
+
                 <p>Desarrollo de aplicaciones para Android y iOS. Lleva tu negocio al bolsillo de tus clientes.</p>
+
             </div>
+
             <div class="card">
+
                 <div class="icon">🌐</div>
+
                 <h3>Sitios Web</h3>
+
                 <p>Diseño web moderno, catálogos digitales y tiendas online optimizadas.</p>
+
             </div>
+
             <div class="card">
+
                 <div class="icon">🔧</div>
+
                 <h3>Soporte IT</h3>
+
                 <p>Instalación de hardware, impresoras térmicas, redes y mantenimiento preventivo.</p>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
 
+
+
 <div class="section-dark">
+
     <section id="portafolio">
+
         <div class="container">
+
             <h2>Portafolio Destacado</h2>
+
             <p class="section-subtitle">Proyectos recientes en funcionamiento.</p>
 
+
+
             <div class="slideshow-container">
+
                 
-                <div class="mySlides fade">
-                    <div class="slide-content">
-                        <iframe 
-                            width="100%" 
-                            height="100%" 
-                            src="https://youtu.be/RGzDQsqd9xQ" 
-                            title="YouTube video player" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                        
-                        <div class="text-overlay">
-                            <h3>Demostración en Vivo</h3> 
-                            <p>Visualiza la fluidez y potencia operativa de nuestro sistema en tiempo real.</p> 
-                        </div>
-                    </div>
-                </div>
 
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos1.png">
+
                         <div class="text-overlay">
-                            <h3>Acceso Seguro y Gestionado</h3> 
-                            <p>Inicio de sesión mediante credenciales únicas para proteger la información sensible de tu negocio.</p> 
+
+                            <h3>Inicio de Sesión Seguro</h3> 
+
+                            <p>Acceso controlado mediante usuario y contraseña para proteger la información de tu negocio.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos2.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Catálogo Digital: Línea Dulce</h3> 
-                            <p>Interfaz visual intuitiva diseñada para agilizar la toma de pedidos de repostería y cafetería.</p> 
+
+                            <h3>Catálogo Dulce</h3> 
+
+                            <p>Interfaz intuitiva para la gestión rápida de pedidos de repostería y cafetería.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos3.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Catálogo Digital: Línea Salada</h3> 
-                            <p>Menú optimizado para la selección rápida de platos fuertes, facilitando la navegación del operador.</p> 
+
+                            <h3>Catálogo Salado</h3> 
+
+                            <p>Menú visual optimizado para la selección ágil de platos fuertes y snacks.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos4.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Gestión Rápida de Volúmenes</h3> 
-                            <p>Control de cantidades eficiente para procesar pedidos masivos sin retrasos en la atención.</p> 
+
+                            <h3>Gestión de Cantidades</h3> 
+
+                            <p>Ajuste rápido de volúmenes de pedido para agilizar la atención en horas punta.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos5.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
+
                             <h3>Personalización de Productos</h3> 
-                            <p>Menús desplegables para selección detallada de toppings, ingredientes extra y modificaciones.</p> 
+
+                            <p>Gestión detallada de extras, toppings y modificaciones por ítem.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos6.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
+
                             <h3>Tarifado Dinámico de Extras</h3> 
-                            <p>Cálculo automático de costos adicionales al superar los límites base de ingredientes por producto.</p> 
+
+                            <p>Aplicación automática de costos adicionales al superar los límites de ingredientes base.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos7.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Flexibilidad de Formatos</h3> 
-                            <p>Gestión inmediata de variantes de tamaño (Normal, XL) adaptándose a la preferencia del cliente.</p> 
+
+                            <h3>Variantes de Tamaño</h3> 
+
+                            <p>Flexibilidad para gestionar formatos estándar, XL o personalizados al instante.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos8.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Resumen de Orden en Tiempo Real</h3> 
-                            <p>Visualización constante del carrito de compra para validación de precios y cantidades antes del cobro.</p> 
+
+                            <h3>Resumen de Pedido</h3> 
+
+                            <p>Visualización constante del detalle de la cuenta para evitar errores y confirmar con el cliente.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos9.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Multi-Medios de Pago</h3> 
-                            <p>Registro integral de transacciones (Efectivo, Tarjetas, Apps) manteniendo el orden contable.</p> 
+
+                            <h3>Multimedios de Pago</h3> 
+
+                            <p>Registro flexible de transacciones (Efectivo, Tarjeta, Transferencia) para una cuadratura exacta.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos10.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Asistente de Cambio Automático</h3> 
-                            <p>Cálculo instantáneo del vuelto y saldos pendientes para agilizar el flujo de caja y evitar errores.</p> 
+
+                            <h3>Asistente de Cambio</h3> 
+
+                            <p>Cálculo automático del vuelto para agilizar el cobro y eliminar errores matemáticos.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos11.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Sincronización con Cocina</h3> 
-                            <p>Generación simultánea de boleta y comanda digital para el equipo de preparación tras el pago.</p> 
+
+                            <h3>Comanda Digital a Cocina</h3> 
+
+                            <p>Envío inmediato de pedidos a pantallas o impresoras en cocina tras confirmar el pago.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos12.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Asistente de Cobro</h3> 
-                            <p>Herramientas visuales para asegurar la precisión en los montos recibidos y devueltos.</p> 
+
+                            <h3>Conexion Movil</h3> 
+
+                            <p>Instrucciones y protocolos para conectarte desde otro dispositivo de forma local.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos13.jpeg" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
+
                             <h3>Ecosistema Multi-Dispositivo</h3> 
-                            <p>Acceso a comandas en tiempo real desde tablets, celulares o pantallas en red local.</p> 
+
+                            <p>Monitoreo de cocina accesible desde tablets, celulares o pantallas dedicadas en tiempo real.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos14.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Cuadratura de Caja Simplificada</h3> 
-                            <p>Interfaz optimizada para el ingreso de datos y cierre de turno sin complicaciones.</p> 
+
+                            <h3>Cierre de Caja Simplificado</h3> 
+
+                            <p>Ingreso fácil de flujos de dinero para arqueos rápidos y sin estrés al final del turno.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos16.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Métricas de Ventas</h3> 
-                            <p>Reportes detallados de ingresos desglosados por método de pago para control total.</p> 
+
+                            <h3>Panel de Administración Seguro</h3> 
+
+                            <p>Acceso restringido para visualizar métricas sensibles y configuraciones globales del sistema.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos15.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Panel de Administración Protegido</h3> 
-                            <p>Acceso exclusivo para administradores a datos sensibles y arqueos de caja reales.</p> 
+
+                            <h3>Reportes de Ventas</h3> 
+
+                            <p>Desglose total de ingresos por método de pago y jornada para una contabilidad transparente.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos17.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Seguridad Operativa</h3> 
-                            <p>Protocolos y alertas para prevenir duplicidad de órdenes y errores humanos en el cierre.</p> 
+
+                            <h3>Protocolos de Seguridad</h3> 
+
+                            <p>Alertas y validaciones para prevenir duplicidad de cobros y errores humanos en el cierre.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos18.jpeg" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
+
                             <h3>Módulo de Garzones</h3> 
-                            <p>Sistema optimizado para toma de pedidos en mesa con la potencia de la terminal central.</p> 
+
+                            <p>Toma de pedidos directamente en la mesa con la misma fluidez y potencia que en la caja central.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos19.jpeg" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Trazabilidad de Pedidos</h3> 
-                            <p>Registro exacto de cliente, mesa y garzón responsable para un servicio impecable.</p> 
+
+                            <h3>Seguimiento de Mesas</h3> 
+
+                            <p>Control total sobre qué garzón atendió y qué productos corresponden a cada cliente.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos20.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Comanda Móvil Instantánea</h3> 
-                            <p>Envío de órdenes a cocina e impresoras térmicas directamente desde el dispositivo móvil.</p> 
+
+                            <h3>Comanda Móvil</h3> 
+
+                            <p>Envío de órdenes a cocina y barra directamente desde el celular personal del garzón.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
 
+
+
                 <div class="mySlides fade">
+
                     <div class="slide-content">
+
                         <img src="src/pos21.png" onerror="this.src='src/pos1.png'">
+
                         <div class="text-overlay">
-                            <h3>Monitor de Cocina (KDS)</h3> 
-                            <p>Alertas visuales por colores según tiempos de espera para optimizar el flujo de despacho.</p> 
+
+                            <h3>Monitor de Tiempos (KDS)</h3> 
+
+                            <p>Alertas visuales tipo semáforo para priorizar pedidos en cocina según su tiempo de espera.</p> 
+
                         </div>
+
                     </div>
+
                 </div>
+
+
 
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
             </div>
+
         </div>
+
     </section>
+
 </div>
+
+
 
 <section id="nosotros">
+
     <div class="container">
+
         <h2>Filosofía TOJ</h2>
+
         <p class="section-subtitle">Nuestra forma de pensar, de vivir.</p>
+
         <div class="grid">
+
             <div class="card">
+
                 <h3>Misión</h3>
+
                 <p>Digitalizar y potenciar los negocios gastronómicos y comerciales mediante soluciones tecnológicas accesibles, robustas y fáciles de usar, permitiendo a nuestros clientes enfocarse en lo que mejor saben hacer: vender.</p>
+
             </div>
+
             <div class="card">
+
                 <h3>Visión</h3>
+
                 <p>Ser el referente líder en innovación tecnológica para PYMES en la región, reconocidos por la calidad de nuestro software, la excelencia en el soporte técnico y el compromiso con el crecimiento de nuestros clientes.</p>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
 
+
+
 <div class="section-dark">
+
     <section id="contacto" style="text-align: center;">
+
         <h2>¿Empezamos?</h2>
+
         <p style="color: #aaa; margin-bottom: 30px;">Cuéntanos tu idea y te asesoramos sin compromiso.</p>
+
         
+
         <a href="https://wa.me/56974464827?text=Hola,%20me%20interesa%20cotizar" class="btn-contact">
+
             Contactar por WhatsApp
+
         </a>
+
     </section>
+
 </div>
 
+
+
 <footer>
+
     <p>&copy; 2026 Tecnology of Jota - TOJ. Todos los derechos reservados.</p>
+
 </footer>
 
+
+
 <a href="https://wa.me/56974464827?text=Hola,%20me%20interesa%20cotizar." class="whatsapp-float">
+
     <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+
 </a>
 
+
+
 <script>
+
     function toggleMenu() {
+
         document.querySelector(".hamburger").classList.toggle("active");
+
         document.querySelector(".nav-menu").classList.toggle("active");
+
     }
+
     function closeMenu() {
+
         document.querySelector(".hamburger").classList.remove("active");
+
         document.querySelector(".nav-menu").classList.remove("active");
+
     }
+
+
 
     let slideIndex = 1;
+
     let autoSlideTimer;
+
     showSlides(slideIndex);
+
     startAutoSlide();
 
+
+
     function plusSlides(n) { clearInterval(autoSlideTimer); showSlides(slideIndex += n); }
+
     function showSlides(n) {
+
         let i; let slides = document.getElementsByClassName("mySlides");
+
         if (n > slides.length) {slideIndex = 1}    
+
         if (n < 1) {slideIndex = slides.length}
+
         for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+
         slides[slideIndex-1].style.display = "block";  
+
     }
+
     function startAutoSlide() { autoSlideTimer = setInterval(function() { showSlides(slideIndex += 1); }, 4000); }
+
 </script>
 
+
+
 </body>
+
 </html>
