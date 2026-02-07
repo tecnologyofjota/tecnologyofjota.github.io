@@ -6,7 +6,7 @@
     <title>Tecnology of Jota | TOJ</title>
     <link rel="icon" type="image/png" href="src/logo.png">
     
- <style>
+    <style>
         /* --- 1. VARIABLES Y CONFIGURACIÓN --- */
         :root {
             --bg-dark: #0a0a0a;
@@ -113,13 +113,13 @@
         .card h3 { color: #fff; margin: 10px 0; font-size: 1.2rem; }
         .card p { color: #aaa; font-size: 0.9rem; }
 
-        /* --- 5. CARRUSEL CORREGIDO PARA JPEGS --- */
+        /* --- 5. CARRUSEL --- */
         .slideshow-container {
             position: relative; 
             max-width: 900px; 
             margin: auto;
-            height: 500px; /* ALTO FIJO: Esto evita que la imagen crezca infinito */
-            background-color: #000; /* Fondo negro para rellenar espacios si la foto es chica */
+            height: 500px; /* Alto fijo para evitar saltos */
+            background-color: #000;
             border-radius: 8px; 
             overflow: hidden;
             border: 1px solid #333;
@@ -128,7 +128,7 @@
         
         .mySlides { 
             display: none; 
-            height: 100%; /* Ocupa toda la altura del contenedor */
+            height: 100%; 
         }
         
         .slide-content {
@@ -143,7 +143,7 @@
         .slide-content img { 
             width: 100%; 
             height: 100%; 
-            object-fit: contain; /* ESTO ES MAGIA: Ajusta la imagen sin cortarla */
+            object-fit: contain; /* Ajuste perfecto de imagen */
             display: block; 
         }
 
@@ -151,19 +151,18 @@
             position: absolute; 
             bottom: 0; 
             width: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent); /* Fondo oscuro para leer el texto */
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent); 
             padding: 50px 20px 20px; 
             text-align: center;
         }
         
         .text-overlay h3 { 
             color: var(--gold-text); 
-            margin: 0 0 5px 0; /* Espacio debajo del título */
+            margin: 0 0 5px 0; 
             font-size: 1.4rem; 
             text-shadow: 2px 2px 4px #000;
         }
         
-        /* ESTILO PARA LA DESCRIPCIÓN */
         .text-overlay p {
             color: #fff;
             margin: 0;
@@ -192,7 +191,6 @@
         .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
         footer { background: #000; text-align: center; padding: 40px 20px; border-top: 1px solid #222; color: #555; font-size: 0.8rem; }
     </style>
-    
 </head>
 <body>
 
@@ -260,7 +258,8 @@
                     <div class="slide-content">
                         <img src="src/pos1.png">
                         <div class="text-overlay">
-                            <h3>Panel Inicio Sesion</h3> <p>Aquí escribes tu usuario y contraseña para inicializar el software.</p> </div>
+                            <h3>Inicio de Sesión Seguro</h3> 
+                            <p>Acceso controlado mediante usuario y contraseña para proteger la información de tu negocio.</p> 
                         </div>
                     </div>
                 </div>
@@ -269,7 +268,8 @@
                     <div class="slide-content">
                         <img src="src/pos2.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Menu de Productos Dulces</h3> <p>Aquí tenemos un menu para la toma de pedidos de productos dulces, intuitivo y fluido.</p> </div>
+                            <h3>Catálogo Dulce</h3> 
+                            <p>Interfaz intuitiva para la gestión rápida de pedidos de repostería y cafetería.</p> 
                         </div>
                     </div>
                 </div>
@@ -278,7 +278,8 @@
                     <div class="slide-content">
                         <img src="src/pos3.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Menu de Productos Salados</h3> <p>Por otra parte, tenemos un menu para la toma de pedidos de productos salados, intuitivo y fluido.</p> </div>
+                            <h3>Catálogo Salado</h3> 
+                            <p>Menú visual optimizado para la selección ágil de platos fuertes y snacks.</p> 
                         </div>
                     </div>
                 </div>
@@ -287,7 +288,8 @@
                     <div class="slide-content">
                         <img src="src/pos4.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Control de Cantidades</h3> <p>Haz tus pedidos mas rapidos gestionando la cantidad que te solicite el cliente!</p> </div>
+                            <h3>Gestión de Cantidades</h3> 
+                            <p>Ajuste rápido de volúmenes de pedido para agilizar la atención en horas punta.</p> 
                         </div>
                     </div>
                 </div>
@@ -296,7 +298,8 @@
                     <div class="slide-content">
                         <img src="src/pos5.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Control de Agregados y Toppings</h3> <p>Menu desplegables personalizados para cada producto y sus posibles agregados y toppings!</p> </div>
+                            <h3>Personalización de Productos</h3> 
+                            <p>Gestión detallada de extras, toppings y modificaciones por ítem.</p> 
                         </div>
                     </div>
                 </div>
@@ -305,7 +308,8 @@
                     <div class="slide-content">
                         <img src="src/pos6.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                           <h3>Automatizacion de Agregados</h3> <p>Una vez superado la cantidad de agregados normal, se activan los precios de cada extra personalizados.</p> </div>
+                            <h3>Tarifado Dinámico de Extras</h3> 
+                            <p>Aplicación automática de costos adicionales al superar los límites de ingredientes base.</p> 
                         </div>
                     </div>
                 </div>
@@ -314,7 +318,8 @@
                     <div class="slide-content">
                         <img src="src/pos7.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Menu de Productos XL</h3> <p>¿El cliente quiere de tamaño normal o XL un producto? No hay problema, lo tenemos.</p> </div>
+                            <h3>Variantes de Tamaño</h3> 
+                            <p>Flexibilidad para gestionar formatos estándar, XL o personalizados al instante.</p> 
                         </div>
                     </div>
                 </div>
@@ -323,7 +328,8 @@
                     <div class="slide-content">
                         <img src="src/pos8.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>¡Carrito a la Vista!</h3> <p>¿Estas seguro de el pedido del cliente? o ¿Tienes alguna duda con algun precio o cantidad? Podras verlo siempre!</p> </div>
+                            <h3>Resumen de Pedido</h3> 
+                            <p>Visualización constante del detalle de la cuenta para evitar errores y confirmar con el cliente.</p> 
                         </div>
                     </div>
                 </div>
@@ -332,7 +338,8 @@
                     <div class="slide-content">
                         <img src="src/pos9.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Opciones Metodo de Pago</h3> <p>Que el cliente pueda cancelar como guste, llevarass un registro interno no importa el metodo de pago.</p> </div>
+                            <h3>Multimedios de Pago</h3> 
+                            <p>Registro flexible de transacciones (Efectivo, Tarjeta, Transferencia) para una cuadratura exacta.</p> 
                         </div>
                     </div>
                 </div>
@@ -341,7 +348,8 @@
                     <div class="slide-content">
                         <img src="src/pos10.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>¿Pago en Efectivo?</h3> <p>Puedes agilizar y alivianar tu mente con numeros, ¡esto te dira cuanto debes devolverle o cuanto le falta al cliente para su pedido!</p> </div>
+                            <h3>Asistente de Cambio</h3> 
+                            <p>Cálculo automático del vuelto para agilizar el cobro y eliminar errores matemáticos.</p> 
                         </div>
                     </div>
                 </div>
@@ -350,7 +358,8 @@
                     <div class="slide-content">
                         <img src="src/pos11.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Menu de Comandas</h3> <p>Al confirmar el metodo de pago aparte de entregarte una Boleta para el cliente o para ti, podras verlo en el menu de los Cocinero. (Posibilidad de que lo vean en otra portatil, telefono, ipad o fisica).</p> </div>
+                            <h3>Comanda Digital a Cocina</h3> 
+                            <p>Envío inmediato de pedidos a pantallas o impresoras en cocina tras confirmar el pago.</p> 
                         </div>
                     </div>
                 </div>
@@ -359,7 +368,8 @@
                     <div class="slide-content">
                         <img src="src/pos12.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>¿Pago en Efectivo?</h3> <p>Puedes agilizar y alivianar tu mente con numeros, ¡esto te dira cuanto debes devolverle o cuanto le falta al cliente para su pedido!</p> </div>
+                            <h3>Precisión en Caja</h3> 
+                            <p>Herramientas visuales para garantizar que el dinero ingresado y devuelto sea siempre el correcto.</p> 
                         </div>
                     </div>
                 </div>
@@ -368,7 +378,8 @@
                     <div class="slide-content">
                         <img src="src/pos13.jpeg" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>¡Conectate!</h3> <p>Conectate desde tu dispositivo mas cercano para ver las comandas en forma digital, ¡ahi estaran en tiempo real!</p> </div>
+                            <h3>Ecosistema Multi-Dispositivo</h3> 
+                            <p>Monitoreo de cocina accesible desde tablets, celulares o pantallas dedicadas en tiempo real.</p> 
                         </div>
                     </div>
                 </div>
@@ -377,7 +388,8 @@
                     <div class="slide-content">
                         <img src="src/pos14.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Menu de Caja</h3> <p>Haz tu cuadratura con la facilidad de ingresar los datos en nuestro mismo sistema.</p> </div>
+                            <h3>Cierre de Caja Simplificado</h3> 
+                            <p>Ingreso fácil de flujos de dinero para arqueos rápidos y sin estrés al final del turno.</p> 
                         </div>
                     </div>
                 </div>
@@ -386,7 +398,8 @@
                     <div class="slide-content">
                         <img src="src/pos15.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                           <h3>Menu de Admin</h3> <p>El sistema sabe con exactitud cuanto se vendio y cuanto deberias de tener en caja, pero esto solo podra verlo el administrador mediante una contraseña.</p> </div>
+                            <h3>Panel de Administración Seguro</h3> 
+                            <p>Acceso restringido para visualizar métricas sensibles y configuraciones globales del sistema.</p> 
                         </div>
                     </div>
                 </div>
@@ -395,7 +408,8 @@
                     <div class="slide-content">
                         <img src="src/pos16.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Menu de Admin Pt2</h3> <p>Nuestro sistema permite ver con exactitud cuanto llevas vendido y con todos los metodos de pago.</p> </div>
+                            <h3>Reportes de Ventas</h3> 
+                            <p>Desglose total de ingresos por método de pago y jornada para una contabilidad transparente.</p> 
                         </div>
                     </div>
                 </div>
@@ -404,7 +418,8 @@
                     <div class="slide-content">
                         <img src="src/pos17.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Seguridad Cierre de Caja</h3> <p>Avisos y prohibiciones para evitar duplicacion de pedidos o errores de comandas, siempre un protocolo presente.</p> </div>
+                            <h3>Protocolos de Seguridad</h3> 
+                            <p>Alertas y validaciones para prevenir duplicidad de cobros y errores humanos en el cierre.</p> 
                         </div>
                     </div>
                 </div>
@@ -413,7 +428,8 @@
                     <div class="slide-content">
                         <img src="src/pos18.jpeg" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>¿Local con Garzones?</h3> <p>No hay problema, tambien existe la psoibilidad de tomar pedidos de una manera muy similar a como si los tomaras en portatil.</p> </div>
+                            <h3>Módulo de Garzones</h3> 
+                            <p>Toma de pedidos directamente en la mesa con la misma fluidez y potencia que en la caja central.</p> 
                         </div>
                     </div>
                 </div>
@@ -422,7 +438,8 @@
                     <div class="slide-content">
                         <img src="src/pos19.jpeg" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Detalles cuidados.</h3> <p>No te preocupes, la toma de pedidos de garzones no perdera ni el nombre del cliente ni sus productos.</p> </div>
+                            <h3>Seguimiento de Mesas</h3> 
+                            <p>Control total sobre qué garzón atendió y qué productos corresponden a cada cliente.</p> 
                         </div>
                     </div>
                 </div>
@@ -431,7 +448,8 @@
                     <div class="slide-content">
                         <img src="src/pos20.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>¡Comandas a Cocina desde tu Celular!</h3> <p>Tus comandas a cocina de la forma mas rapida se enviaran igual Digital y fisicamente a la impresora termica igual.</p> </div>
+                            <h3>Comanda Móvil</h3> 
+                            <p>Envío de órdenes a cocina y barra directamente desde el celular personal del garzón.</p> 
                         </div>
                     </div>
                 </div>
@@ -440,7 +458,8 @@
                     <div class="slide-content">
                         <img src="src/pos21.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>¡Se queman las papas!</h3> <p>Cambios de color depende de la cantidad de tiempo que se demore en salir de la cocina un producto, ten un control y cuidado de tus clientes en todo momento.</p> </div>
+                            <h3>Monitor de Tiempos (KDS)</h3> 
+                            <p>Alertas visuales tipo semáforo para priorizar pedidos en cocina según su tiempo de espera.</p> 
                         </div>
                     </div>
                 </div>
