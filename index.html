@@ -118,7 +118,7 @@
             position: relative; 
             max-width: 900px; 
             margin: auto;
-            height: 500px; /* Alto fijo para evitar saltos */
+            height: 500px; 
             background-color: #000;
             border-radius: 8px; 
             overflow: hidden;
@@ -140,10 +140,12 @@
             position: relative;
         }
 
-        .slide-content img { 
+        /* SOPORTE PARA YOUTUBE (IFRAME) */
+        .slide-content img, .slide-content video, .slide-content iframe { 
             width: 100%; 
             height: 100%; 
-            object-fit: contain; /* Ajuste perfecto de imagen */
+            object-fit: contain; 
+            border: none;
             display: block; 
         }
 
@@ -151,9 +153,10 @@
             position: absolute; 
             bottom: 0; 
             width: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent); 
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 30%, transparent); 
             padding: 50px 20px 20px; 
             text-align: center;
+            pointer-events: none; /* Permite clickear el video a través del texto */
         }
         
         .text-overlay h3 { 
@@ -256,10 +259,28 @@
                 
                 <div class="mySlides fade">
                     <div class="slide-content">
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            src="https://youtu.be/RGzDQsqd9xQ" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                        
+                        <div class="text-overlay">
+                            <h3>Demostración en Vivo</h3> 
+                            <p>Visualiza la fluidez y potencia operativa de nuestro sistema en tiempo real.</p> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="slide-content">
                         <img src="src/pos1.png">
                         <div class="text-overlay">
-                            <h3>Inicio de Sesión Seguro</h3> 
-                            <p>Acceso controlado mediante usuario y contraseña para proteger la información de tu negocio.</p> 
+                            <h3>Acceso Seguro y Gestionado</h3> 
+                            <p>Inicio de sesión mediante credenciales únicas para proteger la información sensible de tu negocio.</p> 
                         </div>
                     </div>
                 </div>
@@ -268,8 +289,8 @@
                     <div class="slide-content">
                         <img src="src/pos2.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Catálogo Dulce</h3> 
-                            <p>Interfaz intuitiva para la gestión rápida de pedidos de repostería y cafetería.</p> 
+                            <h3>Catálogo Digital: Línea Dulce</h3> 
+                            <p>Interfaz visual intuitiva diseñada para agilizar la toma de pedidos de repostería y cafetería.</p> 
                         </div>
                     </div>
                 </div>
@@ -278,8 +299,8 @@
                     <div class="slide-content">
                         <img src="src/pos3.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Catálogo Salado</h3> 
-                            <p>Menú visual optimizado para la selección ágil de platos fuertes y snacks.</p> 
+                            <h3>Catálogo Digital: Línea Salada</h3> 
+                            <p>Menú optimizado para la selección rápida de platos fuertes, facilitando la navegación del operador.</p> 
                         </div>
                     </div>
                 </div>
@@ -288,8 +309,8 @@
                     <div class="slide-content">
                         <img src="src/pos4.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Gestión de Cantidades</h3> 
-                            <p>Ajuste rápido de volúmenes de pedido para agilizar la atención en horas punta.</p> 
+                            <h3>Gestión Rápida de Volúmenes</h3> 
+                            <p>Control de cantidades eficiente para procesar pedidos masivos sin retrasos en la atención.</p> 
                         </div>
                     </div>
                 </div>
@@ -299,7 +320,7 @@
                         <img src="src/pos5.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
                             <h3>Personalización de Productos</h3> 
-                            <p>Gestión detallada de extras, toppings y modificaciones por ítem.</p> 
+                            <p>Menús desplegables para selección detallada de toppings, ingredientes extra y modificaciones.</p> 
                         </div>
                     </div>
                 </div>
@@ -309,7 +330,7 @@
                         <img src="src/pos6.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
                             <h3>Tarifado Dinámico de Extras</h3> 
-                            <p>Aplicación automática de costos adicionales al superar los límites de ingredientes base.</p> 
+                            <p>Cálculo automático de costos adicionales al superar los límites base de ingredientes por producto.</p> 
                         </div>
                     </div>
                 </div>
@@ -318,8 +339,8 @@
                     <div class="slide-content">
                         <img src="src/pos7.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Variantes de Tamaño</h3> 
-                            <p>Flexibilidad para gestionar formatos estándar, XL o personalizados al instante.</p> 
+                            <h3>Flexibilidad de Formatos</h3> 
+                            <p>Gestión inmediata de variantes de tamaño (Normal, XL) adaptándose a la preferencia del cliente.</p> 
                         </div>
                     </div>
                 </div>
@@ -328,8 +349,8 @@
                     <div class="slide-content">
                         <img src="src/pos8.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Resumen de Pedido</h3> 
-                            <p>Visualización constante del detalle de la cuenta para evitar errores y confirmar con el cliente.</p> 
+                            <h3>Resumen de Orden en Tiempo Real</h3> 
+                            <p>Visualización constante del carrito de compra para validación de precios y cantidades antes del cobro.</p> 
                         </div>
                     </div>
                 </div>
@@ -338,8 +359,8 @@
                     <div class="slide-content">
                         <img src="src/pos9.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Multimedios de Pago</h3> 
-                            <p>Registro flexible de transacciones (Efectivo, Tarjeta, Transferencia) para una cuadratura exacta.</p> 
+                            <h3>Multi-Medios de Pago</h3> 
+                            <p>Registro integral de transacciones (Efectivo, Tarjetas, Apps) manteniendo el orden contable.</p> 
                         </div>
                     </div>
                 </div>
@@ -348,8 +369,8 @@
                     <div class="slide-content">
                         <img src="src/pos10.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Asistente de Cambio</h3> 
-                            <p>Cálculo automático del vuelto para agilizar el cobro y eliminar errores matemáticos.</p> 
+                            <h3>Asistente de Cambio Automático</h3> 
+                            <p>Cálculo instantáneo del vuelto y saldos pendientes para agilizar el flujo de caja y evitar errores.</p> 
                         </div>
                     </div>
                 </div>
@@ -358,8 +379,8 @@
                     <div class="slide-content">
                         <img src="src/pos11.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Comanda Digital a Cocina</h3> 
-                            <p>Envío inmediato de pedidos a pantallas o impresoras en cocina tras confirmar el pago.</p> 
+                            <h3>Sincronización con Cocina</h3> 
+                            <p>Generación simultánea de boleta y comanda digital para el equipo de preparación tras el pago.</p> 
                         </div>
                     </div>
                 </div>
@@ -368,8 +389,8 @@
                     <div class="slide-content">
                         <img src="src/pos12.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Conexion Movil</h3> 
-                            <p>Instrucciones y protocolos para conectarte desde otro dispositivo de forma local.</p> 
+                            <h3>Asistente de Cobro</h3> 
+                            <p>Herramientas visuales para asegurar la precisión en los montos recibidos y devueltos.</p> 
                         </div>
                     </div>
                 </div>
@@ -379,7 +400,7 @@
                         <img src="src/pos13.jpeg" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
                             <h3>Ecosistema Multi-Dispositivo</h3> 
-                            <p>Monitoreo de cocina accesible desde tablets, celulares o pantallas dedicadas en tiempo real.</p> 
+                            <p>Acceso a comandas en tiempo real desde tablets, celulares o pantallas en red local.</p> 
                         </div>
                     </div>
                 </div>
@@ -388,8 +409,8 @@
                     <div class="slide-content">
                         <img src="src/pos14.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Cierre de Caja Simplificado</h3> 
-                            <p>Ingreso fácil de flujos de dinero para arqueos rápidos y sin estrés al final del turno.</p> 
+                            <h3>Cuadratura de Caja Simplificada</h3> 
+                            <p>Interfaz optimizada para el ingreso de datos y cierre de turno sin complicaciones.</p> 
                         </div>
                     </div>
                 </div>
@@ -398,8 +419,8 @@
                     <div class="slide-content">
                         <img src="src/pos16.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Panel de Administración Seguro</h3> 
-                            <p>Acceso restringido para visualizar métricas sensibles y configuraciones globales del sistema.</p> 
+                            <h3>Métricas de Ventas</h3> 
+                            <p>Reportes detallados de ingresos desglosados por método de pago para control total.</p> 
                         </div>
                     </div>
                 </div>
@@ -408,8 +429,8 @@
                     <div class="slide-content">
                         <img src="src/pos15.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Reportes de Ventas</h3> 
-                            <p>Desglose total de ingresos por método de pago y jornada para una contabilidad transparente.</p> 
+                            <h3>Panel de Administración Protegido</h3> 
+                            <p>Acceso exclusivo para administradores a datos sensibles y arqueos de caja reales.</p> 
                         </div>
                     </div>
                 </div>
@@ -418,8 +439,8 @@
                     <div class="slide-content">
                         <img src="src/pos17.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Protocolos de Seguridad</h3> 
-                            <p>Alertas y validaciones para prevenir duplicidad de cobros y errores humanos en el cierre.</p> 
+                            <h3>Seguridad Operativa</h3> 
+                            <p>Protocolos y alertas para prevenir duplicidad de órdenes y errores humanos en el cierre.</p> 
                         </div>
                     </div>
                 </div>
@@ -429,7 +450,7 @@
                         <img src="src/pos18.jpeg" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
                             <h3>Módulo de Garzones</h3> 
-                            <p>Toma de pedidos directamente en la mesa con la misma fluidez y potencia que en la caja central.</p> 
+                            <p>Sistema optimizado para toma de pedidos en mesa con la potencia de la terminal central.</p> 
                         </div>
                     </div>
                 </div>
@@ -438,8 +459,8 @@
                     <div class="slide-content">
                         <img src="src/pos19.jpeg" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Seguimiento de Mesas</h3> 
-                            <p>Control total sobre qué garzón atendió y qué productos corresponden a cada cliente.</p> 
+                            <h3>Trazabilidad de Pedidos</h3> 
+                            <p>Registro exacto de cliente, mesa y garzón responsable para un servicio impecable.</p> 
                         </div>
                     </div>
                 </div>
@@ -448,8 +469,8 @@
                     <div class="slide-content">
                         <img src="src/pos20.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Comanda Móvil</h3> 
-                            <p>Envío de órdenes a cocina y barra directamente desde el celular personal del garzón.</p> 
+                            <h3>Comanda Móvil Instantánea</h3> 
+                            <p>Envío de órdenes a cocina e impresoras térmicas directamente desde el dispositivo móvil.</p> 
                         </div>
                     </div>
                 </div>
@@ -458,8 +479,8 @@
                     <div class="slide-content">
                         <img src="src/pos21.png" onerror="this.src='src/pos1.png'">
                         <div class="text-overlay">
-                            <h3>Monitor de Tiempos (KDS)</h3> 
-                            <p>Alertas visuales tipo semáforo para priorizar pedidos en cocina según su tiempo de espera.</p> 
+                            <h3>Monitor de Cocina (KDS)</h3> 
+                            <p>Alertas visuales por colores según tiempos de espera para optimizar el flujo de despacho.</p> 
                         </div>
                     </div>
                 </div>
