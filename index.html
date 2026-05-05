@@ -3,362 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnology of Jota | TOJ</title>
+    <title>Tecnology of Jota | Innovación Digital</title>
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Tecnology of Jota - Soluciones digitales y sistemas POS para potenciar tu negocio gastronómico y comercial.">
-    <meta name="keywords" content="POS, Sistemas de venta, Apps móviles, Diseño web, Soporte IT, Tecnology of Jota, TOJ">
-    
-    <!-- Favicon -->
+    <!-- SEO & Meta -->
+    <meta name="description" content="Soluciones tecnológicas de alto impacto: Sistemas POS, Apps Móviles y Diseño Web Profesional por Tecnology of Jota.">
     <link rel="icon" type="image/png" href="src/logo.png">
     
-    <!-- External CSS -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icons & Libs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="#inicio" class="nav-logo">TOJ</a>
-        <div class="hamburger" onclick="toggleMenu()">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <ul class="nav-menu">
-            <li class="nav-item"><a href="#inicio" class="nav-link" onclick="closeMenu()">Inicio</a></li>
-            <li class="nav-item"><a href="#servicios" class="nav-link" onclick="closeMenu()">Servicios</a></li>
-            <li class="nav-item"><a href="#portafolio" class="nav-link" onclick="closeMenu()">Portafolio</a></li>
-            <li class="nav-item"><a href="#nosotros" class="nav-link" onclick="closeMenu()">Nosotros</a></li>
-            <li class="nav-item"><a href="#contacto" class="nav-link" onclick="closeMenu()">Contacto</a></li>
-        </ul>
+    <!-- Loader -->
+    <div id="loader" class="loader-wrapper">
+        <div class="loader"></div>
     </div>
-</nav>
 
-<header id="inicio">
-    <img src="src/logo.png" alt="TOJ Logo" class="logo-web">
-    <h1>Tecnology of Jota</h1>
-    <p style="color: #888; letter-spacing: 3px; font-size: 0.9rem; margin-top: 10px;">SOLUCIONES DIGITALES & POS</p>
-</header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-logo">
+                <img src="src/logo.png" alt="TOJ" class="mini-logo">
+                <span>TOJ</span>
+            </a>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
+                <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<main>
-    <section id="servicios">
-        <div class="container">
-            <h2>Nuestras Soluciones</h2>
-            <p class="section-subtitle">Tecnología diseñada para potenciar tu negocio.</p>
-            
-            <div class="grid">
-                <div class="card">
-                    <div class="icon">💻</div>
-                    <h3>Sistemas POS</h3>
-                    <p>Software de punto de venta rápido y estable. Control de inventario y ventas en tiempo real.</p>
-                </div>
-                <div class="card">
-                    <div class="icon">📱</div>
-                    <h3>Apps Móviles</h3>
-                    <p>Desarrollo de aplicaciones para Android y iOS. Lleva tu negocio al bolsillo de tus clientes.</p>
-                </div>
-                <div class="card">
-                    <div class="icon">🌐</div>
-                    <h3>Sitios Web</h3>
-                    <p>Diseño web moderno, catálogos digitales y tiendas online optimizadas.</p>
-                </div>
-                <div class="card">
-                    <div class="icon">🔧</div>
-                    <h3>Soporte IT</h3>
-                    <p>Instalación de hardware, impresoras térmicas, redes y mantenimiento preventivo.</p>
-                </div>
+    <!-- Hero Section -->
+    <header id="inicio" class="hero">
+        <div class="hero-content container">
+            <div class="hero-badge reveal">Soluciones Digitales & POS</div>
+            <h1 class="reveal">Transformamos ideas en <span class="gold-text">Experiencias Digitales</span></h1>
+            <p class="reveal">Especialistas en potenciar negocios gastronómicos y comerciales con tecnología de vanguardia.</p>
+            <div class="hero-btns reveal">
+                <a href="#portafolio" class="btn btn-primary">Ver Proyectos</a>
+                <a href="#contacto" class="btn btn-outline">Cotizar Ahora</a>
             </div>
         </div>
-    </section>
+        <div class="hero-visual reveal">
+            <img src="src/logo.png" alt="Tecnology of Jota Logo" class="floating-logo">
+        </div>
+        <div class="scroll-indicator"></div>
+    </header>
 
-    <div class="section-dark">
-        <section id="portafolio">
+    <main>
+        <!-- Services Section -->
+        <section id="servicios" class="services">
             <div class="container">
-                <h2>Portafolio Destacado</h2>
-                <p class="section-subtitle">Proyectos recientes en funcionamiento.</p>
-
-                <div class="slideshow-container">
-                    <!-- Slide 1 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos1.png" alt="Inicio de Sesión Seguro" loading="lazy">
-                            <div class="text-overlay">
-                                <h3>Inicio de Sesión Seguro</h3> 
-                                <p>Acceso controlado mediante usuario y contraseña para proteger la información de tu negocio.</p> 
-                            </div>
-                        </div>
+                <div class="section-header reveal">
+                    <span class="subtitle">Nuestra Expertiz</span>
+                    <h2>¿Cómo podemos ayudarte?</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <div class="service-icon"><i class="fas fa-cash-register"></i></div>
+                        <h3>Sistemas POS</h3>
+                        <p>Software robusto para control total de ventas, inventarios y finanzas en tiempo real.</p>
                     </div>
-
-                    <!-- Slide 2 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos2.png" alt="Catálogo Dulce" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Catálogo Dulce</h3> 
-                                <p>Interfaz intuitiva para la gestión rápida de pedidos de repostería y cafetería.</p> 
-                            </div>
-                        </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Apps Móviles</h3>
+                        <p>Desarrollo nativo y multiplataforma para Android e iOS con diseño centrado en el usuario.</p>
                     </div>
-
-                    <!-- Slide 3 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos3.png" alt="Catálogo Salado" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Catálogo Salado</h3> 
-                                <p>Menú visual optimizado para la selección ágil de platos fuertes y snacks.</p> 
-                            </div>
-                        </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon"><i class="fas fa-globe"></i></div>
+                        <h3>Diseño Web</h3>
+                        <p>Sitios web de alto impacto, catálogos digitales y e-commerce optimizados para conversión.</p>
                     </div>
-
-                    <!-- Slide 4 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos4.png" alt="Gestión de Cantidades" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Gestión de Cantidades</h3> 
-                                <p>Ajuste rápido de volúmenes de pedido para agilizar la atención en horas punta.</p> 
-                            </div>
-                        </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon"><i class="fas fa-tools"></i></div>
+                        <h3>Soporte IT</h3>
+                        <p>Mantenimiento preventivo, redes y configuración de hardware especializado para negocios.</p>
                     </div>
-
-                    <!-- Slide 5 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos5.png" alt="Personalización de Productos" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Personalización de Productos</h3> 
-                                <p>Gestión detallada de extras, toppings y modificaciones por ítem.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 6 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos6.png" alt="Tarifado Dinámico de Extras" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Tarifado Dinámico de Extras</h3> 
-                                <p>Aplicación automática de costos adicionales al superar los límites de ingredientes base.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 7 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos7.png" alt="Variantes de Tamaño" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Variantes de Tamaño</h3> 
-                                <p>Flexibilidad para gestionar formatos estándar, XL o personalizados al instante.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 8 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos8.png" alt="Resumen de Pedido" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Resumen de Pedido</h3> 
-                                <p>Visualización constante del detalle de la cuenta para evitar errores y confirmar con el cliente.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 9 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos9.png" alt="Multimedios de Pago" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Multimedios de Pago</h3> 
-                                <p>Registro flexible de transacciones (Efectivo, Tarjeta, Transferencia) para una cuadratura exacta.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 10 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos10.png" alt="Asistente de Cambio" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Asistente de Cambio</h3> 
-                                <p>Cálculo automático del vuelto para agilizar el cobro y eliminar errores matemáticos.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 11 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos11.png" alt="Comanda Digital a Cocina" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Comanda Digital a Cocina</h3> 
-                                <p>Envío inmediato de pedidos a pantallas o impresoras en cocina tras confirmar el pago.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 12 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos12.png" alt="Conexion Movil" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Conexion Movil</h3> 
-                                <p>Instrucciones y protocolos para conectarte desde otro dispositivo de forma local.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 13 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos13.jpeg" alt="Ecosistema Multi-Dispositivo" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Ecosistema Multi-Dispositivo</h3> 
-                                <p>Monitoreo de cocina accesible desde tablets, celulares o pantallas dedicadas en tiempo real.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 14 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos14.png" alt="Cierre de Caja Simplificado" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Cierre de Caja Simplificado</h3> 
-                                <p>Ingreso fácil de flujos de dinero para arqueos rápidos y sin estrés al final del turno.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 15 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos16.png" alt="Panel de Administración Seguro" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Panel de Administración Seguro</h3> 
-                                <p>Acceso restringido para visualizar métricas sensibles y configuraciones globales del sistema.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 16 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos15.png" alt="Reportes de Ventas" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Reportes de Ventas</h3> 
-                                <p>Desglose total de ingresos por método de pago y jornada para una contabilidad transparente.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 17 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos17.png" alt="Protocolos de Seguridad" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Protocolos de Seguridad</h3> 
-                                <p>Alertas y validaciones para prevenir duplicidad de cobros y errores humanos en el cierre.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 18 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos18.jpeg" alt="Módulo de Garzones" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Módulo de Garzones</h3> 
-                                <p>Toma de pedidos directamente en la mesa con la misma fluidez y potencia que en la caja central.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 19 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos19.jpeg" alt="Seguimiento de Mesas" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Seguimiento de Mesas</h3> 
-                                <p>Control total sobre qué garzón atendió y qué productos corresponden a cada cliente.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 20 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos20.png" alt="Comanda Móvil" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Comanda Móvil</h3> 
-                                <p>Envío de órdenes a cocina y barra directamente desde el celular personal del garzón.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 21 -->
-                    <div class="mySlides fade">
-                        <div class="slide-content">
-                            <img src="src/pos21.png" alt="Monitor de Tiempos (KDS)" loading="lazy" onerror="this.src='src/pos1.png'">
-                            <div class="text-overlay">
-                                <h3>Monitor de Tiempos (KDS)</h3> 
-                                <p>Alertas visuales tipo semáforo para priorizar pedidos en cocina según su tiempo de espera.</p> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <a class="prev" onclick="plusSlides(-1)" aria-label="Anterior">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)" aria-label="Siguiente">&#10095;</a>
                 </div>
             </div>
         </section>
-    </div>
 
-    <section id="nosotros">
-        <div class="container">
-            <h2>Filosofía TOJ</h2>
-            <p class="section-subtitle">Nuestra forma de pensar, de vivir.</p>
-            <div class="grid">
-                <div class="card">
-                    <h3>Misión</h3>
-                    <p>Digitalizar y potenciar los negocios gastronómicos y comerciales mediante soluciones tecnológicas accesibles, robustas y fáciles de usar, permitiendo a nuestros clientes enfocarse en lo que mejor saben hacer: vender.</p>
-                </div>
-                <div class="card">
-                    <h3>Visión</h3>
-                    <p>Ser el referente líder en innovación tecnológica para PYMES en la región, reconocidos por la calidad de nuestro software, la excelencia en el soporte técnico y el compromiso con el crecimiento de nuestros clientes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-dark">
-        <section id="contacto" style="text-align: center;">
+        <!-- Portfolio Section -->
+        <section id="portafolio" class="portfolio">
             <div class="container">
-                <h2>¿Empezamos?</h2>
-                <p style="color: #aaa; margin-bottom: 30px;">Cuéntanos tu idea y te asesoramos sin compromiso.</p>
-                <a href="https://wa.me/56974464827?text=Hola,%20me%20interesa%20cotizar" class="btn-contact">
-                    Contactar por WhatsApp
-                </a>
+                <div class="section-header reveal">
+                    <span class="subtitle">Nuestro Trabajo</span>
+                    <h2>Portafolio Destacado</h2>
+                </div>
+                
+                <!-- Portfolio Filters -->
+                <div class="portfolio-filters reveal">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="pos">Sistemas POS</button>
+                    <button class="filter-btn" data-filter="others">Otros Proyectos</button>
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div class="portfolio-grid reveal">
+                    <!-- POS Projects (Using current images) -->
+                    <div class="portfolio-item pos">
+                        <div class="item-inner">
+                            <img src="src/pos1.png" alt="POS Interface">
+                            <div class="item-overlay">
+                                <h3>Sistema POS Premium</h3>
+                                <p>Interfaz de ventas optimizada</p>
+                                <span class="tag">Sistemas POS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item pos">
+                        <div class="item-inner">
+                            <img src="src/pos2.png" alt="Catálogo Digital">
+                            <div class="item-overlay">
+                                <h3>Catálogo Interactivo</h3>
+                                <p>Gestión visual de productos</p>
+                                <span class="tag">Sistemas POS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item pos">
+                        <div class="item-inner">
+                            <img src="src/pos13.jpeg" alt="Ecosistema Multi">
+                            <div class="item-overlay">
+                                <h3>Control Multidispositivo</h3>
+                                <p>Sincronización en tiempo real</p>
+                                <span class="tag">Sistemas POS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item pos">
+                        <div class="item-inner">
+                            <img src="src/pos21.png" alt="KDS Monitor">
+                            <div class="item-overlay">
+                                <h3>Monitor de Cocina (KDS)</h3>
+                                <p>Gestión de tiempos de preparación</p>
+                                <span class="tag">Sistemas POS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder for Other Projects -->
+                    <div class="portfolio-item others">
+                        <div class="item-inner">
+                            <div class="placeholder-img"><i class="fas fa-code"></i></div>
+                            <div class="item-overlay">
+                                <h3>Proyecto Web Pro</h3>
+                                <p>Landing Page Corporativa</p>
+                                <span class="tag">Otros</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item others">
+                        <div class="item-inner">
+                            <div class="placeholder-img"><i class="fas fa-mobile"></i></div>
+                            <div class="item-overlay">
+                                <h3>App de Delivery</h3>
+                                <p>Solución móvil personalizada</p>
+                                <span class="tag">Otros</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-    </div>
-</main>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2026 Tecnology of Jota - TOJ. Todos los derechos reservados.</p>
-    </div>
-</footer>
+        <!-- About Me Section -->
+        <section id="sobre-mi" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <span class="subtitle">Detrás de la tecnología</span>
+                        <h2>Sobre Mí</h2>
+                        <p>Soy un apasionado desarrollador y consultor tecnológico dedicado a transformar la manera en que los negocios operan en la era digital. Con <strong>Tecnology of Jota</strong>, mi misión es democratizar el acceso a herramientas de software de alto nivel.</p>
+                        <p>Mi enfoque combina la precisión técnica con un diseño intuitivo, asegurando que cada solución no solo funcione a la perfección, sino que también sea un placer utilizarla.</p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-num">+50</span>
+                                <span class="stat-label">Clientes Satisfechos</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-num">100%</span>
+                                <span class="stat-label">Compromiso</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-visual reveal">
+                        <div class="experience-card">
+                            <i class="fas fa-code-branch"></i>
+                            <h4>Evolución Constante</h4>
+                            <p>Siempre a la vanguardia de las últimas tendencias tecnológicas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<a href="https://wa.me/56974464827?text=Hola,%20me%20interesa%20cotizar." class="whatsapp-float" aria-label="Contactar por WhatsApp">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+        <!-- Contact Section -->
+        <section id="contacto" class="contact">
+            <div class="container">
+                <div class="contact-box reveal">
+                    <h2>¿Listo para dar el siguiente paso?</h2>
+                    <p>Hablemos sobre cómo podemos escalar tu negocio juntos.</p>
+                    <a href="https://wa.me/56974464827?text=Hola,%20vengo%20de%20tu%20web%20y%20me%20gustaría%20cotizar" class="btn btn-gold">
+                        <i class="fab fa-whatsapp"></i> Iniciar Conversación
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<!-- External JS -->
-<script src="script.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="src/logo.png" alt="TOJ" class="mini-logo">
+                    <span>Tecnology of Jota</span>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Tecnology of Jota. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
+    <!-- WhatsApp Floating -->
+    <a href="https://wa.me/56974464827" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
