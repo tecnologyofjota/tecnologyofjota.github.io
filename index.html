@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnology of Jota | Innovación Digital</title>
+    <title>Tecnology of Jota | Innovación Digital & POS</title>
     
     <!-- SEO & Meta -->
     <meta name="description" content="Soluciones tecnológicas de alto impacto: Sistemas POS, Apps Móviles y Diseño Web Profesional por Tecnology of Jota.">
@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     
     <!-- Icons & Libs -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -35,11 +35,11 @@
                 <img src="src/logo.png" alt="TOJ" class="mini-logo">
                 <span>TOJ</span>
             </a>
-            <div class="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
+            <button class="hamburger" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
             <ul class="nav-menu">
                 <li><a href="#inicio" class="nav-link">Inicio</a></li>
                 <li><a href="#servicios" class="nav-link">Servicios</a></li>
@@ -52,34 +52,52 @@
 
     <!-- Hero Section -->
     <header id="inicio" class="hero">
-        <div class="hero-content container">
-            <div class="hero-badge reveal">Soluciones Digitales & POS</div>
-            <h1 class="reveal">Transformamos ideas en <span class="gold-text">Experiencias Digitales</span></h1>
-            <p class="reveal">Especialistas en potenciar negocios gastronómicos y comerciales con tecnología de vanguardia.</p>
-            <div class="hero-btns reveal">
-                <a href="#portafolio" class="btn btn-primary">Ver Proyectos</a>
-                <a href="#contacto" class="btn btn-outline">Cotizar Ahora</a>
+        <div class="hero-glow"></div>
+        <div class="container hero-grid">
+            <!-- Left Column -->
+            <div class="hero-content">
+                <div class="hero-badge reveal">Soluciones Digitales & POS SaaS</div>
+                <h1 class="reveal">Transformamos ideas en <br><span class="gold-gradient-text">Experiencias Digitales</span></h1>
+                <p class="hero-description reveal">Especialistas en potenciar negocios gastronómicos y comerciales con tecnología de vanguardia.</p>
+                
+                <div class="hero-btns reveal">
+                    <a href="#portafolio" class="btn btn-primary">Ver Proyectos</a>
+                    <a href="#contacto" class="btn btn-outline">Cotizar Ahora</a>
+                </div>
+                
+                <div class="tech-stack-premium reveal">
+                    <span class="tech-stack-title">Tecnologías de Alto Rendimiento</span>
+                    <div class="tech-badges">
+                        <div class="tech-pill"><i class="fab fa-react"></i> React</div>
+                        <div class="tech-pill"><i class="fas fa-bolt"></i> Next.js</div>
+                        <div class="tech-pill"><i class="fas fa-mobile-alt"></i> Flutter</div>
+                        <div class="tech-pill"><i class="fas fa-database"></i> Supabase</div>
+                        <div class="tech-pill"><i class="fas fa-server"></i> PostgreSQL</div>
+                        <div class="tech-pill"><i class="fab fa-android"></i> Kotlin</div>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Tech Stack Section -->
-            <div class="tech-stack reveal">
-                <span class="tech-title">Tecnologías que dominamos</span>
-                <div class="tech-icons">
-                    <i class="fab fa-html5" title="HTML5"></i>
-                    <i class="fab fa-css3-alt" title="CSS3"></i>
-                    <i class="fab fa-js" title="JavaScript"></i>
-                    <i class="fab fa-react" title="React"></i>
-                    <i class="fab fa-node-js" title="Node.js"></i>
-                    <i class="fab fa-android" title="Android"></i>
-                    <i class="fab fa-apple" title="iOS"></i>
-                    <i class="fas fa-database" title="Databases"></i>
+
+            <!-- Right Column -->
+            <div class="hero-visual-container reveal">
+                <div class="logo-composition">
+                    <img src="src/logo.png" alt="Tecnology of Jota" class="hero-logo-main">
+                    
+                    <!-- Authority Card -->
+                    <div class="authority-card">
+                        <div class="card-header">
+                            <div class="terminal-icon"><i class="fas fa-terminal"></i></div>
+                            <span class="card-tag">Dirección Tecnológica</span>
+                        </div>
+                        <div class="card-body">
+                            <h4>Juan David Idarraga Bolaños</h4>
+                            <p>Ingeniero de Software Full-Stack & Mobile. Arquitectura de sistemas escalables y análisis de datos.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="hero-visual reveal">
-            <img src="src/logo.png" alt="Tecnology of Jota Logo" class="floating-logo">
-        </div>
-        <div class="scroll-indicator"></div>
+        <div class="scroll-down-hint"></div>
     </header>
 
     <main>
@@ -123,16 +141,13 @@
                     <h2>Portafolio Destacado</h2>
                 </div>
                 
-                <!-- Portfolio Filters -->
                 <div class="portfolio-filters reveal">
                     <button class="filter-btn active" data-filter="all">Todos</button>
                     <button class="filter-btn" data-filter="pos">Sistemas POS</button>
                     <button class="filter-btn" data-filter="others">Otros Proyectos</button>
                 </div>
 
-                <!-- Portfolio Grid -->
                 <div class="portfolio-grid reveal">
-                    <!-- POS Projects (Using current images) -->
                     <div class="portfolio-item pos">
                         <div class="item-inner">
                             <img src="src/pos1.png" alt="POS Interface">
@@ -173,8 +188,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Placeholder for Other Projects -->
                     <div class="portfolio-item others">
                         <div class="item-inner">
                             <div class="placeholder-img"><i class="fas fa-code"></i></div>
@@ -263,7 +276,6 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Floating -->
     <a href="https://wa.me/56974464827" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
