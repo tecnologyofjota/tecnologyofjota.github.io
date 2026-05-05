@@ -21,7 +21,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-[#0a0a0a] text-white selection:bg-yellow-500/30">
+<body class="bg-[#0a0a0a] text-white">
 
     <!-- Loader -->
     <div id="loader" class="loader-wrapper">
@@ -50,8 +50,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="w-full min-h-screen max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 relative pt-20">
+    <!-- Hero Section [FIXED GRID & LOGO] -->
+    <section id="inicio" class="w-full min-h-screen max-w-7xl mx-auto px-6 pt-24 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+        
         <!-- Left Column -->
         <div class="hero-content space-y-6">
             <div class="reveal inline-block px-4 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-xs font-bold uppercase tracking-widest">
@@ -70,7 +71,6 @@
                 <a href="#contacto" class="px-8 py-4 rounded-full border border-yellow-500/50 text-yellow-500 font-bold hover:bg-yellow-500 hover:text-black transition-all">Cotizar Ahora</a>
             </div>
 
-            <!-- Tech Stack Fix -->
             <div class="reveal pt-10">
                 <p class="text-yellow-500 text-xs font-bold uppercase tracking-widest mb-4">Tecnologías de Alto Rendimiento</p>
                 <div class="flex flex-wrap gap-3">
@@ -84,18 +84,17 @@
             </div>
         </div>
 
-        <!-- Right Column Fix -->
-        <div class="reveal relative flex justify-center items-center w-full lg:h-full">
-            <div class="relative w-full max-w-[500px] aspect-square flex items-center justify-center">
-                <img src="src/logo.png" alt="TOJ" class="w-full h-auto animate-float drop-shadow-[0_0_50px_rgba(202,138,4,0.3)]">
+        <!-- Right Column [FIXED SINGLE LOGO] -->
+        <div class="reveal flex flex-col items-center justify-center w-full max-w-md mx-auto">
+            <div class="relative w-full">
+                <img src="src/logo.png" alt="Tecnology of Jota" class="w-full h-auto animate-float drop-shadow-[0_0_50px_rgba(202,138,4,0.3)]">
                 
-                <!-- Founder Card Fix -->
-                <div class="backdrop-blur-xl bg-white/5 border border-white/10 p-6 rounded-2xl shadow-2xl absolute -bottom-10 lg:bottom-10 left-0 lg:-left-10 z-10 max-w-[320px]">
+                <!-- Founder Card -->
+                <div class="backdrop-blur-xl bg-white/5 border border-white/10 p-6 rounded-2xl shadow-2xl mt-8">
                     <h3 class="text-yellow-500 font-bold text-sm uppercase tracking-widest mb-2">Dirección Tecnológica</h3>
                     <p class="text-white font-black text-xl mb-2">Juan David Idarraga Bolaños</p>
                     <p class="text-gray-400 text-sm leading-relaxed">
                         Ingeniero de Software Full-Stack & Mobile Developer.<br/>
-                        Arquitectura SaaS & Análisis de Datos.<br/>
                         Santiago, Chile.
                     </p>
                 </div>
@@ -103,7 +102,7 @@
         </div>
     </section>
 
-    <!-- Portfolio Section Fix -->
+    <!-- Portfolio Section -->
     <section id="portafolio" class="w-full py-32 max-w-7xl mx-auto px-6">
         <div class="text-center mb-20 space-y-4">
             <span class="text-yellow-500 text-xs font-bold uppercase tracking-[0.3em]">Nuestro Trabajo</span>
@@ -111,7 +110,6 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Project Card Template -->
             <div class="portfolio-item relative w-full aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden bg-[#121212] border border-white/10 group cursor-pointer" data-img="src/pos1.png">
                 <img src="src/pos1.png" alt="POS 1" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
@@ -119,7 +117,6 @@
                     <p class="text-yellow-500 text-sm font-medium">Arquitectura SaaS</p>
                 </div>
             </div>
-
             <div class="portfolio-item relative w-full aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden bg-[#121212] border border-white/10 group cursor-pointer" data-img="src/pos2.png">
                 <img src="src/pos2.png" alt="POS 2" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
@@ -127,7 +124,6 @@
                     <p class="text-yellow-500 text-sm font-medium">Cloud Management</p>
                 </div>
             </div>
-
             <div class="portfolio-item relative w-full aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden bg-[#121212] border border-white/10 group cursor-pointer" data-img="src/pos13.jpeg">
                 <img src="src/pos13.jpeg" alt="POS 3" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
@@ -135,55 +131,16 @@
                     <p class="text-yellow-500 text-sm font-medium">Cross-platform</p>
                 </div>
             </div>
-
-            <div class="portfolio-item relative w-full aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden bg-[#121212] border border-white/10 group cursor-pointer" data-img="src/pos21.png">
-                <img src="src/pos21.png" alt="POS 4" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                    <h3 class="text-white font-bold text-xl">Monitor de Cocina</h3>
-                    <p class="text-yellow-500 text-sm font-medium">Real-time Data</p>
-                </div>
-            </div>
-            
-            <div class="portfolio-item relative w-full aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden bg-[#121212] border border-white/10 group cursor-pointer" data-img="src/pos4.png">
-                <img src="src/pos4.png" alt="POS 5" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                    <h3 class="text-white font-bold text-xl">Análisis de Ventas</h3>
-                    <p class="text-yellow-500 text-sm font-medium">BI & Analytics</p>
-                </div>
-            </div>
-
-            <div class="portfolio-item relative w-full aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden bg-[#121212] border border-white/10 group cursor-pointer" data-img="src/pos15.png">
-                <img src="src/pos15.png" alt="POS 6" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                    <h3 class="text-white font-bold text-xl">Gestión Mobile</h3>
-                    <p class="text-yellow-500 text-sm font-medium">Native App</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Lightbox Fix -->
+    <!-- Lightbox -->
     <div id="lightbox" class="fixed inset-0 z-[5000] bg-black/95 backdrop-blur-sm hidden flex-col items-center justify-center p-4">
         <button id="close-lightbox" class="absolute top-8 right-8 text-white text-4xl hover:text-yellow-500 transition-colors">&times;</button>
         <div class="relative max-w-5xl w-full h-full flex items-center justify-center">
             <img id="lightbox-img" src="" alt="Zoomed View" class="max-w-full max-h-full object-contain transition-transform duration-300">
         </div>
-        <div class="absolute bottom-10 flex gap-4">
-            <button id="rotate-btn" class="px-6 py-2 rounded-full bg-white/10 border border-white/20 text-white hover:bg-yellow-500 hover:text-black transition-all">Rotar 90°</button>
-            <button id="zoom-btn" class="px-6 py-2 rounded-full bg-white/10 border border-white/20 text-white hover:bg-yellow-500 hover:text-black transition-all">Zoom In</button>
-        </div>
     </div>
-
-    <!-- Contact & Footer -->
-    <section id="contacto" class="w-full py-32 max-w-4xl mx-auto px-6 text-center">
-        <div class="backdrop-blur-xl bg-white/5 border border-white/10 p-16 rounded-[40px] space-y-8">
-            <h2 class="text-4xl lg:text-5xl font-black">¿Listo para la transformación?</h2>
-            <p class="text-gray-400 text-lg">Iniciemos el desarrollo de tu próximo activo digital.</p>
-            <a href="https://wa.me/56974464827" class="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-green-500 text-white font-bold hover:scale-105 transition-transform">
-                <i class="fab fa-whatsapp text-2xl"></i> Contactar Ahora
-            </a>
-        </div>
-    </section>
 
     <footer class="w-full py-12 border-t border-white/10 text-center text-gray-500 text-sm uppercase tracking-widest">
         <p>&copy; 2026 Tecnology of Jota. Built with Precision.</p>
