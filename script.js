@@ -2,12 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // 1. Loader
     const loader = document.getElementById('loader');
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            loader.style.opacity = '0';
-            setTimeout(() => loader.style.display = 'none', 500);
-        }, 500);
-    });
+    if (loader) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
+            }, 500);
+        });
+    }
 
     // 2. ScrollReveal Animations
     const sr = ScrollReveal({
@@ -28,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Update active button
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
@@ -66,36 +67,33 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 5. Mobile Menu Toggle
+    // 5. Mobile Menu Logic
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    hamburger.addEventListener('click', () => {
+    const toggleMenu = () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
-        
-        // Estilos temporales para el menú móvil si no están en CSS
-        if (navMenu.classList.contains('active')) {
-            navMenu.style.display = 'flex';
-            navMenu.style.flexDirection = 'column';
-            navMenu.style.position = 'fixed';
-            navMenu.style.top = '70px';
-            navMenu.style.left = '0';
-            navMenu.style.width = '100%';
-            navMenu.style.background = 'var(--bg-dark)';
-            navMenu.style.padding = '2rem';
-            navMenu.style.borderBottom = '1px solid var(--primary)';
-        } else {
-            navMenu.style.display = '';
-        }
-    });
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    };
+
+    const closeMenu = () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    hamburger.addEventListener('click', toggleMenu);
 
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            navMenu.style.display = '';
-        });
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', (e) => {
+        if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            closeMenu();
+        }
     });
 });
