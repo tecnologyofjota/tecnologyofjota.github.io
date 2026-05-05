@@ -1,0 +1,182 @@
+/* --- 1. VARIABLES Y CONFIGURACIÓN --- */
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-panel: #141414;
+    --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    --gold-text: #deb853; 
+    --text-main: #e0e0e0;
+    --text-muted: #999;
+    --whatsapp-green: #25d366;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    margin: 0;
+    padding-top: 70px;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(#1a1a1a 15%, transparent 16%),
+        radial-gradient(#1a1a1a 15%, transparent 16%);
+    background-size: 6px 6px;
+    background-position: 0 0, 3px 3px;
+}
+
+/* --- 2. BARRA DE NAVEGACIÓN --- */
+.navbar {
+    position: fixed; top: 0; left: 0; width: 100%;
+    background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px);
+    border-bottom: 1px solid #333; z-index: 1000; height: 70px;
+    display: flex; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+.nav-container {
+    width: 100%; max-width: 1200px; margin: auto;
+    display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
+}
+
+.nav-logo {
+    font-size: 1.5rem; font-weight: bold; background: var(--gold-gradient);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-decoration: none; letter-spacing: 2px; text-transform: uppercase;
+}
+
+.nav-menu { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
+
+.nav-link {
+    text-decoration: none; color: var(--text-main); font-size: 0.85rem;
+    text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s;
+}
+.nav-link:hover { color: var(--gold-text); }
+
+.hamburger { display: none; cursor: pointer; }
+.bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--gold-text); transition: 0.3s; }
+
+@media screen and (max-width: 768px) {
+    .hamburger { display: block; }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    .nav-menu {
+        position: fixed; left: -100%; top: 70px; flex-direction: column; background-color: #000;
+        width: 100%; height: 100vh; text-align: center; transition: 0.4s; padding-top: 40px; border-top: 1px solid var(--gold-text);
+    }
+    .nav-menu.active { left: 0; }
+    .nav-item { margin: 20px 0; }
+    .nav-link { font-size: 1.2rem; }
+}
+
+/* --- 3. SECCIONES Y DISEÑO --- */
+section { padding: 60px 20px; }
+.section-dark { background-color: #000; border-top: 1px solid #222; border-bottom: 1px solid #222; box-shadow: inset 0 0 50px #050505; }
+.container { max-width: 1100px; margin: auto; }
+
+header {
+    text-align: center; padding: 4rem 1rem 2rem;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+    border-bottom: 1px solid var(--gold-text);
+}
+
+.logo-web {
+    width: 450px; max-width: 90%; display: block; margin: 0 auto 1.5rem;
+    filter: drop-shadow(0 0 20px rgba(191, 149, 63, 0.3));
+}
+
+h1 { font-size: 2.2rem; margin: 0; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; letter-spacing: 2px; }
+h2 { color: var(--gold-text); text-align: center; text-transform: uppercase; margin-bottom: 10px; font-size: 1.8rem; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+.section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 0.95rem; letter-spacing: 1px; }
+
+.grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+.card {
+    background: var(--bg-panel); padding: 2.5rem 1.5rem; border-radius: 4px; text-align: center;
+    border: 1px solid #222; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.3s, border-color 0.3s;
+    position: relative; overflow: hidden; flex: 1 1 280px; max-width: 350px;
+}
+.card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--gold-gradient); transform: scaleX(0); transition: transform 0.3s; }
+.card:hover { transform: translateY(-5px); border-color: #333; }
+.card:hover::before { transform: scaleX(1); }
+.icon { font-size: 2.5rem; margin-bottom: 15px; filter: grayscale(100%); transition: 0.3s; }
+.card:hover .icon { filter: grayscale(0%); }
+.card h3 { color: #fff; margin: 10px 0; font-size: 1.2rem; }
+.card p { color: #aaa; font-size: 0.9rem; }
+
+/* --- 5. CARRUSEL --- */
+.slideshow-container {
+    position: relative; 
+    max-width: 900px; 
+    margin: auto;
+    height: 500px; /* Alto fijo para evitar saltos */
+    background-color: #000;
+    border-radius: 8px; 
+    overflow: hidden;
+    border: 1px solid #333;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+}
+
+.mySlides { 
+    display: none; 
+    height: 100%; 
+}
+
+.slide-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.slide-content img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; /* Ajuste perfecto de imagen */
+    display: block; 
+}
+
+.text-overlay {
+    position: absolute; 
+    bottom: 0; 
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent); 
+    padding: 50px 20px 20px; 
+    text-align: center;
+}
+
+.text-overlay h3 { 
+    color: var(--gold-text); 
+    margin: 0 0 5px 0; 
+    font-size: 1.4rem; 
+    text-shadow: 2px 2px 4px #000;
+}
+
+.text-overlay p {
+    color: #fff;
+    margin: 0;
+    font-size: 0.95rem;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.prev, .next {
+    cursor: pointer; position: absolute; top: 50%; padding: 16px; margin-top: -22px;
+    color: white; font-weight: bold; font-size: 20px; background: rgba(0,0,0,0.5); border-radius: 3px; z-index: 10;
+}
+.next { right: 0; }
+
+/* --- 6. EXTRAS --- */
+.btn-contact {
+    display: inline-block; padding: 15px 40px; background: var(--gold-gradient); color: #000;
+    font-weight: bold; text-decoration: none; border-radius: 50px; margin-top: 20px;
+    box-shadow: 0 0 20px rgba(222, 184, 83, 0.3); transition: 0.3s;
+}
+.btn-contact:hover { box-shadow: 0 0 30px rgba(222, 184, 83, 0.6); transform: scale(1.05); }
+.whatsapp-float {
+    position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: var(--whatsapp-green);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 2000; transition: transform 0.3s;
+}
+.whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
+footer { background: #000; text-align: center; padding: 40px 20px; border-top: 1px solid #222; color: #555; font-size: 0.8rem; }
