@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        navMenu.classList.toggle('hidden');
         document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
 
@@ -36,74 +37,61 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            navMenu.classList.add('hidden');
             document.body.style.overflow = '';
         });
     });
 
-    // 4. Lightbox Logic
+    // 4. Lightbox Logic Fix
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.querySelector('.lightbox-close');
-    const prevBtn = document.querySelector('.lightbox-prev');
-    const nextBtn = document.querySelector('.lightbox-next');
+    const closeBtn = document.getElementById('close-lightbox');
     const rotateBtn = document.getElementById('rotate-btn');
     const zoomBtn = document.getElementById('zoom-btn');
     
     const portfolioItems = document.querySelectorAll('.portfolio-item');
-    let currentIndex = 0;
     let currentRotation = 0;
     let isZoomed = false;
 
-    const images = Array.from(portfolioItems).map(item => item.querySelector('img').src);
+    portfolioItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const imgSrc = item.getAttribute('data-img');
+            lightboxImg.src = imgSrc;
+            currentRotation = 0;
+            isZoomed = false;
+            updateLightboxTransform();
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        });
+    });
 
-    const openLightbox = (index) => {
-        currentIndex = index;
-        currentRotation = 0;
-        isZoomed = false;
-        updateLightbox();
-        lightbox.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    };
-
-    const updateLightbox = () => {
-        lightboxImg.src = images[currentIndex];
+    const updateLightboxTransform = () => {
         lightboxImg.style.transform = `rotate(${currentRotation}deg) scale(${isZoomed ? 1.5 : 1})`;
     };
 
-    portfolioItems.forEach((item, index) => {
-        item.addEventListener('click', () => openLightbox(index));
-    });
-
     closeBtn.addEventListener('click', () => {
-        lightbox.style.display = 'none';
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
         document.body.style.overflow = '';
     });
 
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateLightbox();
-    });
-
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateLightbox();
-    });
-
-    rotateBtn.addEventListener('click', () => {
+    rotateBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         currentRotation += 90;
-        updateLightbox();
+        updateLightboxTransform();
     });
 
-    zoomBtn.addEventListener('click', () => {
+    zoomBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         isZoomed = !isZoomed;
-        updateLightbox();
+        zoomBtn.textContent = isZoomed ? "Zoom Out" : "Zoom In";
+        updateLightboxTransform();
     });
 
-    // Close on background click
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
-            lightbox.style.display = 'none';
-            document.body.style.overflow = '';
+            closeBtn.click();
         }
     });
 });
