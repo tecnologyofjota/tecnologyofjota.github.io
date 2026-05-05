@@ -139,8 +139,28 @@ h2 {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2.5rem;
+    gap: 2rem;
+    align-items: center;
 }
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background: var(--primary);
+    transition: var(--transition);
+}
+
+.hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.active .bar:nth-child(2) { opacity: 0; }
+.hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 .nav-link {
     text-decoration: none;
@@ -156,11 +176,12 @@ h2 {
 
 /* --- 4. HERO SECTION --- */
 .hero {
-    height: 100vh;
-    display: flex;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    justify-content: space-between;
-    padding-top: 80px;
+    gap: 2rem;
+    padding: 120px 2rem 60px;
     position: relative;
     overflow: hidden;
 }
@@ -192,7 +213,7 @@ h2 {
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.1;
     margin-bottom: 1.5rem;
     font-family: 'Playfair Display', serif;
@@ -211,15 +232,18 @@ h2 {
 }
 
 .hero-visual {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .floating-logo {
-    width: 80%;
-    max-width: 400px;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    object-fit: contain;
     filter: drop-shadow(0 0 30px rgba(191, 149, 63, 0.2));
     animation: float 6s ease-in-out infinite;
 }
@@ -547,21 +571,42 @@ h2 {
 /* --- RESPONSIVE --- */
 @media (max-width: 992px) {
     .hero {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         text-align: center;
-        height: auto;
-        padding-bottom: 50px;
+        padding-top: 140px;
+        min-height: auto;
     }
-    .hero h1 { font-size: 3rem; }
+    .hero-content {
+        order: 2;
+    }
+    .hero-visual {
+        order: 1;
+        margin-bottom: 2rem;
+    }
+    .hero h1 { font-size: 2.8rem; }
     .hero-btns { justify-content: center; }
     .about-grid { grid-template-columns: 1fr; }
-    .hero-visual { margin-top: 3rem; }
 }
 
 @media (max-width: 768px) {
-    .nav-menu {
-        display: none; /* Simplificación para este ejemplo, se activaría con JS */
+    .hamburger {
+        display: flex;
     }
-    .hero h1 { font-size: 2.5rem; }
-    .contact-box h2 { font-size: 2rem; }
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--bg-dark);
+        flex-direction: column;
+        padding: 2rem;
+        transition: var(--transition);
+        z-index: 999;
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+    .hero h1 { font-size: 2.2rem; }
+    .contact-box h2 { font-size: 1.8rem; }
 }
