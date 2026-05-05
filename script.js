@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. ScrollReveal Animations
+    // 2. ScrollReveal
     const sr = ScrollReveal({
         origin: 'bottom',
         distance: '40px',
@@ -19,95 +19,91 @@ document.addEventListener("DOMContentLoaded", () => {
         delay: 200,
         reset: false
     });
-
     sr.reveal('.reveal', { interval: 100 });
-    sr.reveal('.service-card', { interval: 150 });
-    sr.reveal('.portfolio-item', { interval: 100 });
 
-    // 3. Portfolio Filtering
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filterValue = btn.getAttribute('data-filter');
-
-            portfolioItems.forEach(item => {
-                if (filterValue === 'all' || item.classList.contains(filterValue)) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 10);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 400);
-                }
-            });
-        });
-    });
-
-    // 4. Navbar Scroll Effect
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.height = '70px';
-            navbar.style.background = 'rgba(5, 5, 5, 0.95)';
-        } else {
-            navbar.style.height = '80px';
-            navbar.style.background = 'rgba(5, 5, 5, 0.8)';
-        }
-    });
-
-    // 5. Robust Mobile Menu
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+    // 3. Navigation
+    const hamburger = document.getElementById('hamburger-btn');
+    const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    const openMenu = () => {
-        hamburger.classList.add('active');
-        navMenu.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    };
-
-    const closeMenu = () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    };
-
-    hamburger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (navMenu.classList.contains('active')) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
 
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            closeMenu();
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
         });
     });
 
-    // Close on click outside
-    document.addEventListener('click', (e) => {
-        if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-            closeMenu();
-        }
+    // 4. Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+    const rotateBtn = document.getElementById('rotate-btn');
+    const zoomBtn = document.getElementById('zoom-btn');
+    
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    let currentIndex = 0;
+    let currentRotation = 0;
+    let isZoomed = false;
+
+    const images = Array.from(portfolioItems).map(item => item.querySelector('img').src);
+
+    const openLightbox = (index) => {
+        currentIndex = index;
+        currentRotation = 0;
+        isZoomed = false;
+        updateLightbox();
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    };
+
+    const updateLightbox = () => {
+        lightboxImg.src = images[currentIndex];
+        lightboxImg.style.transform = `rotate(${currentRotation}deg) scale(${isZoomed ? 1.5 : 1})`;
+    };
+
+    portfolioItems.forEach((item, index) => {
+        item.addEventListener('click', () => openLightbox(index));
     });
 
-    // Close on ESC key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-            closeMenu();
+    closeBtn.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = '';
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateLightbox();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateLightbox();
+    });
+
+    rotateBtn.addEventListener('click', () => {
+        currentRotation += 90;
+        updateLightbox();
+    });
+
+    zoomBtn.addEventListener('click', () => {
+        isZoomed = !isZoomed;
+        updateLightbox();
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = '';
         }
     });
 });

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnology of Jota | Innovación Digital & POS</title>
+    <title>Tecnology of Jota | Senior Digital Solutions</title>
     
     <!-- SEO & Meta -->
     <meta name="description" content="Soluciones tecnológicas de alto impacto: Sistemas POS, Apps Móviles y Diseño Web Profesional por Tecnology of Jota.">
@@ -21,26 +21,32 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="bg-black">
 
     <!-- Loader -->
     <div id="loader" class="loader-wrapper">
         <div class="loader"></div>
     </div>
 
+    <!-- Background Orbs -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
+        <div class="nav-container container">
             <a href="#inicio" class="nav-logo">
                 <img src="src/logo.png" alt="TOJ" class="mini-logo">
                 <span>TOJ</span>
             </a>
-            <button class="hamburger" aria-label="Abrir menú">
+            <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#inicio" class="nav-link">Inicio</a></li>
                 <li><a href="#servicios" class="nav-link">Servicios</a></li>
                 <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
@@ -51,13 +57,12 @@
     </nav>
 
     <!-- Hero Section -->
-    <header id="inicio" class="hero">
-        <div class="hero-glow"></div>
+    <header id="inicio" class="hero min-h-screen">
         <div class="container hero-grid">
             <!-- Left Column -->
             <div class="hero-content">
                 <div class="hero-badge reveal">Soluciones Digitales & POS SaaS</div>
-                <h1 class="reveal">Transformamos ideas en <br><span class="gold-gradient-text">Experiencias Digitales</span></h1>
+                <h1 class="reveal">Transformamos ideas en <br><span class="gold-gradient-text animated-gradient">Experiencias Digitales</span></h1>
                 <p class="hero-description reveal">Especialistas en potenciar negocios gastronómicos y comerciales con tecnología de vanguardia.</p>
                 
                 <div class="hero-btns reveal">
@@ -65,15 +70,15 @@
                     <a href="#contacto" class="btn btn-outline">Cotizar Ahora</a>
                 </div>
                 
-                <div class="tech-stack-premium reveal">
+                <div class="tech-marquee reveal">
                     <span class="tech-stack-title">Tecnologías de Alto Rendimiento</span>
                     <div class="tech-badges">
-                        <div class="tech-pill"><i class="fab fa-react"></i> React</div>
-                        <div class="tech-pill"><i class="fas fa-bolt"></i> Next.js</div>
-                        <div class="tech-pill"><i class="fas fa-mobile-alt"></i> Flutter</div>
-                        <div class="tech-pill"><i class="fas fa-database"></i> Supabase</div>
-                        <div class="tech-pill"><i class="fas fa-server"></i> PostgreSQL</div>
-                        <div class="tech-pill"><i class="fab fa-android"></i> Kotlin</div>
+                        <div class="tech-pill">React</div>
+                        <div class="tech-pill">Next.js</div>
+                        <div class="tech-pill">Flutter</div>
+                        <div class="tech-pill">Kotlin</div>
+                        <div class="tech-pill">Supabase</div>
+                        <div class="tech-pill">PostgreSQL</div>
                     </div>
                 </div>
             </div>
@@ -81,50 +86,48 @@
             <!-- Right Column -->
             <div class="hero-visual-container reveal">
                 <div class="logo-composition">
-                    <img src="src/logo.png" alt="Tecnology of Jota" class="hero-logo-main">
+                    <img src="src/logo.png" alt="Tecnology of Jota" class="hero-logo-main animate-float">
                     
-                    <!-- Authority Card -->
-                    <div class="authority-card">
+                    <!-- Founder Card -->
+                    <div class="founder-card glass-card">
                         <div class="card-header">
-                            <div class="terminal-icon"><i class="fas fa-terminal"></i></div>
-                            <span class="card-tag">Dirección Tecnológica</span>
+                            <span class="card-tag gold-text">Dirección Tecnológica</span>
                         </div>
                         <div class="card-body">
                             <h4>Juan David Idarraga Bolaños</h4>
-                            <p>Ingeniero de Software Full-Stack & Mobile. Arquitectura de sistemas escalables y análisis de datos.</p>
+                            <p>Ingeniero de Software Full-Stack & Mobile Developer. Especialista en Arquitectura SaaS, Sistemas POS y Análisis de Datos desde Santiago, Chile.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-down-hint"></div>
     </header>
 
     <main>
         <!-- Services Section -->
-        <section id="servicios" class="services">
+        <section id="servicios" class="services py-24">
             <div class="container">
                 <div class="section-header reveal">
                     <span class="subtitle">Nuestra Expertiz</span>
                     <h2>¿Cómo podemos ayudarte?</h2>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card reveal">
+                    <div class="service-card glass-card reveal">
                         <div class="service-icon"><i class="fas fa-cash-register"></i></div>
                         <h3>Sistemas POS</h3>
                         <p>Software robusto para control total de ventas, inventarios y finanzas en tiempo real.</p>
                     </div>
-                    <div class="service-card reveal">
+                    <div class="service-card glass-card reveal">
                         <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
                         <h3>Apps Móviles</h3>
                         <p>Desarrollo nativo y multiplataforma para Android e iOS con diseño centrado en el usuario.</p>
                     </div>
-                    <div class="service-card reveal">
+                    <div class="service-card glass-card reveal">
                         <div class="service-icon"><i class="fas fa-globe"></i></div>
                         <h3>Diseño Web</h3>
                         <p>Sitios web de alto impacto, catálogos digitales y e-commerce optimizados para conversión.</p>
                     </div>
-                    <div class="service-card reveal">
+                    <div class="service-card glass-card reveal">
                         <div class="service-icon"><i class="fas fa-tools"></i></div>
                         <h3>Soporte IT</h3>
                         <p>Mantenimiento preventivo, redes y configuración de hardware especializado para negocios.</p>
@@ -134,77 +137,71 @@
         </section>
 
         <!-- Portfolio Section -->
-        <section id="portafolio" class="portfolio">
+        <section id="portafolio" class="portfolio py-24">
             <div class="container">
                 <div class="section-header reveal">
                     <span class="subtitle">Nuestro Trabajo</span>
-                    <h2>Portafolio Destacado</h2>
+                    <h2 class="elegant-serif">Portafolio Destacado</h2>
                 </div>
                 
-                <div class="portfolio-filters reveal">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="pos">Sistemas POS</button>
-                    <button class="filter-btn" data-filter="others">Otros Proyectos</button>
-                </div>
-
                 <div class="portfolio-grid reveal">
-                    <div class="portfolio-item pos">
-                        <div class="item-inner">
-                            <img src="src/pos1.png" alt="POS Interface">
+                    <!-- Project 1 -->
+                    <div class="portfolio-item glass-card" data-index="0">
+                        <div class="aspect-ratio-box">
+                            <img src="src/pos1.png" alt="POS Dashboard" class="portfolio-img">
                             <div class="item-overlay">
                                 <h3>Sistema POS Premium</h3>
-                                <p>Interfaz de ventas optimizada</p>
-                                <span class="tag">Sistemas POS</span>
+                                <span class="tag">Dashboard</span>
                             </div>
                         </div>
                     </div>
-                    <div class="portfolio-item pos">
-                        <div class="item-inner">
-                            <img src="src/pos2.png" alt="Catálogo Digital">
+                    <!-- Project 2 -->
+                    <div class="portfolio-item glass-card" data-index="1">
+                        <div class="aspect-ratio-box">
+                            <img src="src/pos2.png" alt="Catálogo Digital" class="portfolio-img">
                             <div class="item-overlay">
                                 <h3>Catálogo Interactivo</h3>
-                                <p>Gestión visual de productos</p>
-                                <span class="tag">Sistemas POS</span>
+                                <span class="tag">UI/UX</span>
                             </div>
                         </div>
                     </div>
-                    <div class="portfolio-item pos">
-                        <div class="item-inner">
-                            <img src="src/pos13.jpeg" alt="Ecosistema Multi">
+                    <!-- Project 3 -->
+                    <div class="portfolio-item glass-card" data-index="2">
+                        <div class="aspect-ratio-box">
+                            <img src="src/pos13.jpeg" alt="Multi Device" class="portfolio-img">
                             <div class="item-overlay">
-                                <h3>Control Multidispositivo</h3>
-                                <p>Sincronización en tiempo real</p>
-                                <span class="tag">Sistemas POS</span>
+                                <h3>Ecosistema Multi</h3>
+                                <span class="tag">Cross-platform</span>
                             </div>
                         </div>
                     </div>
-                    <div class="portfolio-item pos">
-                        <div class="item-inner">
-                            <img src="src/pos21.png" alt="KDS Monitor">
+                    <!-- Project 4 -->
+                    <div class="portfolio-item glass-card" data-index="3">
+                        <div class="aspect-ratio-box">
+                            <img src="src/pos21.png" alt="KDS System" class="portfolio-img">
                             <div class="item-overlay">
-                                <h3>Monitor de Cocina (KDS)</h3>
-                                <p>Gestión de tiempos de preparación</p>
-                                <span class="tag">Sistemas POS</span>
+                                <h3>Monitor KDS</h3>
+                                <span class="tag">SaaS</span>
                             </div>
                         </div>
                     </div>
-                    <div class="portfolio-item others">
-                        <div class="item-inner">
-                            <div class="placeholder-img"><i class="fas fa-code"></i></div>
+                    <!-- Project 5 -->
+                    <div class="portfolio-item glass-card" data-index="4">
+                        <div class="aspect-ratio-box">
+                            <img src="src/pos4.png" alt="Inventory" class="portfolio-img">
                             <div class="item-overlay">
-                                <h3>Proyecto Web Pro</h3>
-                                <p>Landing Page Corporativa</p>
-                                <span class="tag">Otros</span>
+                                <h3>Gestión de Inventario</h3>
+                                <span class="tag">Backend</span>
                             </div>
                         </div>
                     </div>
-                    <div class="portfolio-item others">
-                        <div class="item-inner">
-                            <div class="placeholder-img"><i class="fas fa-mobile"></i></div>
+                    <!-- Project 6 -->
+                    <div class="portfolio-item glass-card" data-index="5">
+                        <div class="aspect-ratio-box">
+                            <img src="src/pos15.png" alt="Analytics" class="portfolio-img">
                             <div class="item-overlay">
-                                <h3>App de Delivery</h3>
-                                <p>Solución móvil personalizada</p>
-                                <span class="tag">Otros</span>
+                                <h3>Análisis de Datos</h3>
+                                <span class="tag">Analytics</span>
                             </div>
                         </div>
                     </div>
@@ -213,30 +210,29 @@
         </section>
 
         <!-- About Me Section -->
-        <section id="sobre-mi" class="about">
+        <section id="sobre-mi" class="about py-24">
             <div class="container">
                 <div class="about-grid">
                     <div class="about-text reveal">
                         <span class="subtitle">Detrás de la tecnología</span>
                         <h2>Sobre Mí</h2>
-                        <p>Soy un apasionado desarrollador y consultor tecnológico dedicado a transformar la manera en que los negocios operan en la era digital. Con <strong>Tecnology of Jota</strong>, mi misión es democratizar el acceso a herramientas de software de alto nivel.</p>
-                        <p>Mi enfoque combina la precisión técnica con un diseño intuitivo, asegurando que cada solución no solo funcione a la perfección, sino que también sea un placer utilizarla.</p>
+                        <p>Como Arquitecto de Software Senior, me especializo en construir ecosistemas digitales que no solo resuelven problemas, sino que escalan con tu visión. Mi trabajo en <strong>Tecnology of Jota</strong> es el puente entre la complejidad técnica y la simplicidad operativa.</p>
                         <div class="about-stats">
                             <div class="stat-item">
                                 <span class="stat-num">+50</span>
-                                <span class="stat-label">Clientes Satisfechos</span>
+                                <span class="stat-label">Sistemas Desplegados</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-num">100%</span>
-                                <span class="stat-label">Compromiso</span>
+                                <span class="stat-num">99.9%</span>
+                                <span class="stat-label">Uptime</span>
                             </div>
                         </div>
                     </div>
                     <div class="about-visual reveal">
-                        <div class="experience-card">
-                            <i class="fas fa-code-branch"></i>
-                            <h4>Evolución Constante</h4>
-                            <p>Siempre a la vanguardia de las últimas tendencias tecnológicas.</p>
+                        <div class="experience-card glass-card">
+                            <i class="fas fa-microchip"></i>
+                            <h4>Arquitectura SaaS</h4>
+                            <p>Sistemas diseñados para el crecimiento masivo y la alta disponibilidad.</p>
                         </div>
                     </div>
                 </div>
@@ -244,20 +240,34 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contacto" class="contact">
+        <section id="contacto" class="contact py-24">
             <div class="container">
-                <div class="contact-box reveal">
-                    <h2>¿Listo para dar el siguiente paso?</h2>
-                    <p>Hablemos sobre cómo podemos escalar tu negocio juntos.</p>
-                    <a href="https://wa.me/56974464827?text=Hola,%20vengo%20de%20tu%20web%20y%20me%20gustaría%20cotizar" class="btn btn-gold">
-                        <i class="fab fa-whatsapp"></i> Iniciar Conversación
+                <div class="contact-box glass-card reveal">
+                    <h2>¿Listo para la transformación?</h2>
+                    <p>Iniciemos el desarrollo de tu próximo activo digital.</p>
+                    <a href="https://wa.me/56974464827" class="btn btn-gold ripple">
+                        <i class="fab fa-whatsapp"></i> Contactar Ahora
                     </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-modal">
+        <button class="lightbox-close">&times;</button>
+        <button class="lightbox-prev">&#10094;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Zoomed Project">
+        </div>
+        <button class="lightbox-next">&#10095;</button>
+        <div class="lightbox-controls">
+            <button id="rotate-btn"><i class="fas fa-sync-alt"></i> Rotar 90°</button>
+            <button id="zoom-btn"><i class="fas fa-search-plus"></i> Zoom</button>
+        </div>
+    </div>
+
+    <footer class="footer py-12">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
@@ -265,22 +275,21 @@
                     <span>Tecnology of Jota</span>
                 </div>
                 <div class="footer-social">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
                     <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Tecnology of Jota. Todos los derechos reservados.</p>
+                <p>&copy; 2026 Tecnology of Jota. Built with Precision.</p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/56974464827" class="whatsapp-float" target="_blank">
+    <!-- WhatsApp Floating -->
+    <a href="https://wa.me/56974464827" class="whatsapp-float pulse" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
