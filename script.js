@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2. ScrollReveal Animations
     const sr = ScrollReveal({
         origin: 'bottom',
-        distance: '60px',
+        distance: '40px',
         duration: 1000,
         delay: 200,
         reset: false
@@ -59,23 +59,21 @@ document.addEventListener("DOMContentLoaded", () => {
         if (window.scrollY > 50) {
             navbar.style.height = '70px';
             navbar.style.background = 'rgba(5, 5, 5, 0.95)';
-            navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
         } else {
             navbar.style.height = '80px';
             navbar.style.background = 'rgba(5, 5, 5, 0.8)';
-            navbar.style.boxShadow = 'none';
         }
     });
 
-    // 5. Mobile Menu Logic
+    // 5. Robust Mobile Menu
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    const toggleMenu = () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    const openMenu = () => {
+        hamburger.classList.add('active');
+        navMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
     };
 
     const closeMenu = () => {
@@ -84,15 +82,31 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.overflow = '';
     };
 
-    hamburger.addEventListener('click', toggleMenu);
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (navMenu.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     });
 
-    // Cerrar menú al hacer clic fuera
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            closeMenu();
+        });
+    });
+
+    // Close on click outside
     document.addEventListener('click', (e) => {
         if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
             closeMenu();
         }
     });
