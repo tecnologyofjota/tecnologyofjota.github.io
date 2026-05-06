@@ -3,147 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnology of Jota | Senior Digital Solutions</title>
-    
-    <!-- SEO & Meta -->
-    <meta name="description" content="Soluciones tecnológicas de alto impacto: Sistemas POS, Apps Móviles y Diseño Web Profesional por Tecnology of Jota.">
+    <meta name="description" content="Portafolio de Juan David Idarraga Bolaños, ingeniero en sistemas y desarrollador full-stack especializado en soluciones web, mobile y sistemas POS.">
+    <meta name="theme-color" content="#080808">
+    <meta property="og:title" content="Juan David Idarraga Bolaños | Ingeniero en Sistemas">
+    <meta property="og:description" content="Portafolio profesional de soluciones digitales, desarrollo web, mobile y sistemas POS.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="src/logo.png">
+    <title>Juan David Idarraga | Ingeniero en Sistemas</title>
     <link rel="icon" type="image/png" href="src/logo.png">
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-    
-    <!-- Icons & Libs -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/scrollreveal"></script>
-    
-    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-[#0a0a0a] text-white">
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <!-- Loader -->
-    <div id="loader" class="loader-wrapper">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar fixed top-0 w-full h-20 z-[2000] border-b border-white/10 backdrop-blur-xl bg-black/80">
-        <div class="container mx-auto px-6 h-full flex justify-between items-center">
-            <a href="#inicio" class="flex items-center gap-3 no-underline text-white font-black text-2xl tracking-tighter">
-                <img src="src/logo.png" alt="TOJ" class="h-10">
+    <header class="site-header">
+        <nav class="nav shell" aria-label="Navegación principal">
+            <a class="brand" href="#inicio" aria-label="Ir al inicio">
+                <img src="src/logo.png" alt="" width="42" height="42">
                 <span>TOJ</span>
             </a>
-            <button class="hamburger lg:hidden flex flex-col gap-1.5 cursor-pointer" id="hamburger-btn">
-                <span class="bar w-7 h-0.5 bg-yellow-500 transition-all"></span>
-                <span class="bar w-7 h-0.5 bg-yellow-500 transition-all"></span>
-                <span class="bar w-7 h-0.5 bg-yellow-500 transition-all"></span>
+
+            <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Abrir menú</span>
             </button>
-            <ul class="nav-menu hidden lg:flex list-none gap-8" id="nav-menu">
-                <li><a href="#inicio" class="nav-link text-gray-400 hover:text-yellow-500 transition-colors font-medium text-sm uppercase tracking-widest">Inicio</a></li>
-                <li><a href="#servicios" class="nav-link text-gray-400 hover:text-yellow-500 transition-colors font-medium text-sm uppercase tracking-widest">Servicios</a></li>
-                <li><a href="#portafolio" class="nav-link text-gray-400 hover:text-yellow-500 transition-colors font-medium text-sm uppercase tracking-widest">Portafolio</a></li>
-                <li><a href="#sobre-mi" class="nav-link text-gray-400 hover:text-yellow-500 transition-colors font-medium text-sm uppercase tracking-widest">Sobre Mí</a></li>
-                <li><a href="#contacto" class="nav-link text-gray-400 hover:text-yellow-500 transition-colors font-medium text-sm uppercase tracking-widest">Contacto</a></li>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section [FIXED GRID & LOGO] -->
-    <section id="inicio" class="w-full min-h-screen max-w-7xl mx-auto px-6 pt-24 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
-        
-        <!-- Left Column -->
-        <div class="hero-content space-y-6">
-            <div class="reveal inline-block px-4 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-xs font-bold uppercase tracking-widest">
-                Soluciones Digitales & POS SaaS
-            </div>
-            <h1 class="reveal text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight">
-                Transformamos ideas en <br>
-                <span class="bg-gradient-to-r from-yellow-600 via-yellow-200 to-yellow-600 bg-clip-text text-transparent">Experiencias Digitales</span>
-            </h1>
-            <p class="reveal text-gray-400 text-lg lg:text-xl max-w-xl">
-                Especialistas en potenciar negocios gastronómicos y comerciales con tecnología de vanguardia.
-            </p>
-            
-            <div class="reveal flex flex-wrap gap-4 pt-4">
-                <a href="#portafolio" class="px-8 py-4 rounded-full bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-bold hover:scale-105 transition-transform shadow-xl shadow-yellow-600/20">Ver Proyectos</a>
-                <a href="#contacto" class="px-8 py-4 rounded-full border border-yellow-500/50 text-yellow-500 font-bold hover:bg-yellow-500 hover:text-black transition-all">Cotizar Ahora</a>
-            </div>
-
-            <div class="reveal pt-10">
-                <p class="text-yellow-500 text-xs font-bold uppercase tracking-widest mb-4">Tecnologías de Alto Rendimiento</p>
-                <div class="flex flex-wrap gap-3">
-                    <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-sm text-gray-300">React</span>
-                    <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-sm text-gray-300">Next.js</span>
-                    <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-sm text-gray-300">Flutter</span>
-                    <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-sm text-gray-300">Kotlin</span>
-                    <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-sm text-gray-300">Supabase</span>
-                    <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-sm text-gray-300">PostgreSQL</span>
+    <main id="contenido">
+        <section class="hero shell section" id="inicio">
+            <div class="hero-copy reveal">
+                <p class="eyebrow">Ingeniería de sistemas · Full-stack · Mobile</p>
+                <h1>Construyo soluciones digitales claras, rápidas y listas para negocio.</h1>
+                <p class="hero-text">
+                    Soy Juan David Idarraga Bolaños, ingeniero en sistemas enfocado en crear productos web, aplicaciones móviles y plataformas POS con criterio técnico, buena experiencia de usuario y una base preparada para crecer.
+                </p>
+                <div class="actions">
+                    <a class="btn primary" href="#portafolio">Ver proyectos</a>
+                    <a class="btn secondary" href="#contacto">Trabajemos juntos</a>
                 </div>
             </div>
-        </div>
 
-        <!-- Right Column [FIXED SINGLE LOGO] -->
-        <div class="reveal flex flex-col items-center justify-center w-full max-w-md mx-auto">
-            <div class="relative w-full">
-                <img src="src/logo.png" alt="Tecnology of Jota" class="w-full h-auto animate-float drop-shadow-[0_0_50px_rgba(202,138,4,0.3)]">
-                
-                <!-- Founder Card -->
-                <div class="backdrop-blur-xl bg-white/5 border border-white/10 p-6 rounded-2xl shadow-2xl mt-8">
-                    <h3 class="text-yellow-500 font-bold text-sm uppercase tracking-widest mb-2">Dirección Tecnológica</h3>
-                    <p class="text-white font-black text-xl mb-2">Juan David Idarraga Bolaños</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Ingeniero de Software Full-Stack & Mobile Developer.<br/>
-                        Santiago, Chile.
-                    </p>
+            <aside class="hero-panel reveal" aria-label="Resumen profesional">
+                <img class="hero-logo" src="src/logo.png" alt="Logo de Tecnology of Jota">
+                <div class="profile-card">
+                    <p class="profile-label">Tecnology of Jota</p>
+                    <h2>Juan David Idarraga Bolaños</h2>
+                    <p>Desarrollador full-stack y mobile. Santiago, Chile.</p>
                 </div>
-            </div>
-        </div>
-    </section>
+            </aside>
+        </section>
 
-    <!-- Portfolio Section -->
-    <section id="portafolio" class="w-full py-32 max-w-7xl mx-auto px-6">
-        <div class="text-center mb-20 space-y-4">
-            <span class="text-yellow-500 text-xs font-bold uppercase tracking-[0.3em]">Nuestro Trabajo</span>
-            <h2 class="text-4xl lg:text-6xl font-black font-serif italic">Portafolio Destacado</h2>
-        </div>
+        <section class="section shell" id="servicios">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Qué puedo resolver</p>
+                <h2>Servicios con foco en impacto real</h2>
+            </div>
+            <div class="service-grid">
+                <article class="service-card reveal">
+                    <span class="service-icon">01</span>
+                    <h3>Desarrollo web</h3>
+                    <p>Sitios, paneles y aplicaciones web con estructura limpia, rendimiento cuidado y una experiencia fácil de mantener.</p>
+                </article>
+                <article class="service-card reveal">
+                    <span class="service-icon">02</span>
+                    <h3>Apps móviles</h3>
+                    <p>Aplicaciones Android y multiplataforma orientadas a flujos de trabajo concretos, datos sincronizados y uso diario.</p>
+                </article>
+                <article class="service-card reveal">
+                    <span class="service-icon">03</span>
+                    <h3>Sistemas POS</h3>
+                    <p>Soluciones para ventas, inventario y operación comercial con arquitectura pensada para locales gastronómicos y retail.</p>
+                </article>
+            </div>
+        </section>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="portfolio-item relative w-full aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden bg-[#121212] border border-white/10 group cursor-pointer" data-img="src/pos1.png">
-                <img src="src/pos1.png" alt="POS 1" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                    <h3 class="text-white font-bold text-xl">Sistema POS Premium</h3>
-                    <p class="text-yellow-500 text-sm font-medium">Arquitectura SaaS</p>
-                </div>
+        <section class="section shell" id="portafolio">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Trabajo destacado</p>
+                <h2>Portafolio técnico</h2>
             </div>
-            <div class="portfolio-item relative w-full aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden bg-[#121212] border border-white/10 group cursor-pointer" data-img="src/pos2.png">
-                <img src="src/pos2.png" alt="POS 2" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                    <h3 class="text-white font-bold text-xl">Control de Inventario</h3>
-                    <p class="text-yellow-500 text-sm font-medium">Cloud Management</p>
-                </div>
+            <div class="portfolio-grid">
+                <article class="project-card reveal">
+                    <button class="project-media" type="button" data-image="src/pos1.png" aria-label="Ampliar captura de Sistema POS Premium">
+                        <img src="src/pos1.png" alt="Interfaz de sistema POS premium" loading="lazy">
+                    </button>
+                    <div class="project-content">
+                        <p class="project-type">SaaS POS</p>
+                        <h3>Sistema POS Premium</h3>
+                        <p>Flujo de ventas, gestión operativa y visualización de información para negocios con atención presencial.</p>
+                    </div>
+                </article>
+                <article class="project-card reveal">
+                    <button class="project-media" type="button" data-image="src/pos2.png" aria-label="Ampliar captura de Control de Inventario">
+                        <img src="src/pos2.png" alt="Interfaz de control de inventario" loading="lazy">
+                    </button>
+                    <div class="project-content">
+                        <p class="project-type">Gestión cloud</p>
+                        <h3>Control de Inventario</h3>
+                        <p>Administración de productos, existencias y operación comercial con información centralizada.</p>
+                    </div>
+                </article>
+                <article class="project-card reveal">
+                    <button class="project-media" type="button" data-image="src/pos13.jpeg" aria-label="Ampliar captura de ecosistema mobile">
+                        <img src="src/pos13.jpeg" alt="Vista móvil de ecosistema POS" loading="lazy">
+                    </button>
+                    <div class="project-content">
+                        <p class="project-type">Mobile</p>
+                        <h3>Ecosistema multiplataforma</h3>
+                        <p>Experiencias conectadas para escritorio y móvil, enfocadas en continuidad operacional.</p>
+                    </div>
+                </article>
             </div>
-            <div class="portfolio-item relative w-full aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden bg-[#121212] border border-white/10 group cursor-pointer" data-img="src/pos13.jpeg">
-                <img src="src/pos13.jpeg" alt="POS 3" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                    <h3 class="text-white font-bold text-xl">Ecosistema Multi</h3>
-                    <p class="text-yellow-500 text-sm font-medium">Cross-platform</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="fixed inset-0 z-[5000] bg-black/95 backdrop-blur-sm hidden flex-col items-center justify-center p-4">
-        <button id="close-lightbox" class="absolute top-8 right-8 text-white text-4xl hover:text-yellow-500 transition-colors">&times;</button>
-        <div class="relative max-w-5xl w-full h-full flex items-center justify-center">
-            <img id="lightbox-img" src="" alt="Zoomed View" class="max-w-full max-h-full object-contain transition-transform duration-300">
-        </div>
+        <section class="section shell about" id="sobre-mi">
+            <div class="about-copy reveal">
+                <p class="eyebrow">Sobre mí</p>
+                <h2>Ingeniería aplicada, comunicación clara y ejecución.</h2>
+                <p>
+                    Me interesa construir software que no solo se vea bien, sino que también resuelva procesos reales. Trabajo desde la definición del problema hasta la entrega, cuidando arquitectura, interfaz, datos y mantenimiento.
+                </p>
+            </div>
+            <div class="skills reveal" aria-label="Tecnologías principales">
+                <span>React</span>
+                <span>Next.js</span>
+                <span>Flutter</span>
+                <span>Kotlin</span>
+                <span>Supabase</span>
+                <span>PostgreSQL</span>
+                <span>GitHub Pages</span>
+                <span>APIs REST</span>
+            </div>
+        </section>
+
+        <section class="section shell contact" id="contacto">
+            <div class="contact-copy reveal">
+                <p class="eyebrow">Contacto</p>
+                <h2>¿Tienes una idea o un sistema que necesita orden?</h2>
+                <p>Podemos convertirlo en una solución web, móvil o POS con una ruta técnica clara.</p>
+            </div>
+            <div class="contact-actions reveal">
+                <a class="btn primary" href="https://github.com/tecnologyofjota" target="_blank" rel="noreferrer">Ver GitHub</a>
+                <a class="btn secondary" href="mailto:tecnologyofjota@gmail.com">Enviar correo</a>
+            </div>
+        </section>
+    </main>
+
+    <div class="lightbox" id="lightbox" hidden>
+        <button class="lightbox-close" type="button" aria-label="Cerrar imagen ampliada">×</button>
+        <img id="lightbox-image" src="" alt="">
     </div>
 
-    <footer class="w-full py-12 border-t border-white/10 text-center text-gray-500 text-sm uppercase tracking-widest">
-        <p>&copy; 2026 Tecnology of Jota. Built with Precision.</p>
+    <footer class="footer">
+        <div class="shell footer-inner">
+            <p>© 2026 Tecnology of Jota.</p>
+            <a href="#inicio">Volver arriba</a>
+        </div>
     </footer>
 
     <script src="script.js"></script>
