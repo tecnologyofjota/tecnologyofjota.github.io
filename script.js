@@ -1,97 +1,83 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // 1. Loader
-    const loader = document.getElementById('loader');
-    if (loader) {
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                loader.style.opacity = '0';
-                setTimeout(() => loader.style.display = 'none', 500);
-            }, 500);
+    const body = document.body;
+    const navToggle = document.querySelector(".nav-toggle");
+    const navMenu = document.getElementById("nav-menu");
+    const navLinks = document.querySelectorAll(".nav-menu a");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const lightboxClose = document.querySelector(".lightbox-close");
+    const projectButtons = document.querySelectorAll(".project-media");
+
+    const closeMenu = () => {
+        if (!navToggle || !navMenu) return;
+        navToggle.setAttribute("aria-expanded", "false");
+        navMenu.classList.remove("is-open");
+        body.classList.remove("menu-open");
+    };
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener("click", () => {
+            const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+            navToggle.setAttribute("aria-expanded", String(!isOpen));
+            navMenu.classList.toggle("is-open", !isOpen);
+            body.classList.toggle("menu-open", !isOpen);
         });
     }
 
-    // 2. ScrollReveal
-    const sr = ScrollReveal({
-        origin: 'bottom',
-        distance: '40px',
-        duration: 1000,
-        delay: 200,
-        reset: false
-    });
-    sr.reveal('.reveal', { interval: 100 });
-
-    // 3. Navigation
-    const hamburger = document.getElementById('hamburger-btn');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        navMenu.classList.toggle('hidden');
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    navLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
     });
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            navMenu.classList.add('hidden');
-            document.body.style.overflow = '';
-        });
-    });
-
-    // 4. Lightbox Logic Fix
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.getElementById('close-lightbox');
-    const rotateBtn = document.getElementById('rotate-btn');
-    const zoomBtn = document.getElementById('zoom-btn');
-    
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    let currentRotation = 0;
-    let isZoomed = false;
-
-    portfolioItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const imgSrc = item.getAttribute('data-img');
-            lightboxImg.src = imgSrc;
-            currentRotation = 0;
-            isZoomed = false;
-            updateLightboxTransform();
-            lightbox.classList.remove('hidden');
-            lightbox.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        });
-    });
-
-    const updateLightboxTransform = () => {
-        lightboxImg.style.transform = `rotate(${currentRotation}deg) scale(${isZoomed ? 1.5 : 1})`;
+    const openLightbox = (imageSrc, imageAlt) => {
+        if (!lightbox || !lightboxImage) return;
+        lightboxImage.src = imageSrc;
+        lightboxImage.alt = imageAlt || "Imagen ampliada del proyecto";
+        lightbox.hidden = false;
+        body.classList.add("menu-open");
+        lightboxClose?.focus();
     };
 
-    closeBtn.addEventListener('click', () => {
-        lightbox.classList.add('hidden');
-        lightbox.classList.remove('flex');
-        document.body.style.overflow = '';
+    const closeLightbox = () => {
+        if (!lightbox || !lightboxImage) return;
+        lightbox.hidden = true;
+        lightboxImage.src = "";
+        body.classList.remove("menu-open");
+    };
+
+    projectButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const imageSrc = button.dataset.image;
+            const imageAlt = button.querySelector("img")?.alt;
+            if (imageSrc) openLightbox(imageSrc, imageAlt);
+        });
     });
 
-    rotateBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        currentRotation += 90;
-        updateLightboxTransform();
+    lightboxClose?.addEventListener("click", closeLightbox);
+
+    lightbox?.addEventListener("click", (event) => {
+        if (event.target === lightbox) closeLightbox();
     });
 
-    zoomBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        isZoomed = !isZoomed;
-        zoomBtn.textContent = isZoomed ? "Zoom Out" : "Zoom In";
-        updateLightboxTransform();
-    });
-
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeBtn.click();
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeMenu();
+            closeLightbox();
         }
     });
+
+    const revealItems = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.14 });
+
+        revealItems.forEach((item) => observer.observe(item));
+    } else {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
 });
